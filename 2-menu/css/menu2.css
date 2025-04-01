@@ -1,0 +1,109 @@
+@import url(reset.css);
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
+
+body{background-color: #888;}
+
+header{
+  width: 100%;
+  height: 60px;
+  background-color: #2b2f3a;
+  position: relative;
+}
+nav{
+  width: 1200px;
+  height: inherit;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Main Menu */
+ul.gnb{
+  /* border: 1px solid green;  */
+  display: flex;
+
+}
+.gnb>.main{ /* 자손선택자로 메인메뉴에만 적용하게 함(.gnb에서 첫번째 자식인 .main만 적용) */
+  position: relative;
+
+}
+.gnb>.main>a{
+  /* border: 1px solid yellow; */
+  position: relative;
+  height: 60px;
+  padding: 0 35px;
+  display: flex;
+  align-items: center;
+  color: #7a8189;
+  font-size: 15px;
+	font-weight: 600;
+  text-transform: uppercase;
+  overflow: hidden;
+
+}
+.gnb>.main>a:after{  /*삼각형*/
+  content: "\f0de" ;
+  font-family: fontawesome;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  transition: 0.35s;
+}
+
+.gnb>.main:hover>a{color: #fff;}
+.gnb>.main:hover>a:after{
+  top: calc(100% - 6px);
+}
+
+
+/* Sub Menu */
+.sub{
+  /* display: none; */ /* display: flex; 를 사용하기 때문에 적용안됨*/
+  position: absolute;
+  width: 100%;
+  height: 40px;
+  top: 100%;
+  /* left: 0; ->부모위치를 벗어날거라 필요없음*/
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 20px;
+}
+.sub li{
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sub li a {
+	color: #666;
+	font-size: 14px;
+}
+.sub li:hover a{color: crimson;}
+
+/*서브메뉴 가로폭,나오는위치값->부모영역을 벗어나서 위치를 잡기 위함*/
+.s1{width: 450px;left:-70px;}
+.s2{width: 510px;left:-100px}
+.s3{width: 330px;left:-50px}
+.s4{width: 270px;left:-70px}
+.s5{width: 200px;left:-30px}
+
+/*100%서브배경박스->jQuery에서 보이게 함*/
+.bg_box{ 
+  display:none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+	width:100%;
+	height:40px; 
+	background-color:#fff;
+}
+
+section p{
+  font-size: 48px;
+  color: #666;
+}
