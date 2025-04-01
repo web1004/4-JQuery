@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>5-이벤트</title>
+  <style>
+    .event5 {
+      width: 100px;
+      height: 100px;
+      background: #0cf;
+    }
+    #txt2{
+      position:fixed;
+      top:10px;
+      right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <p id="txt2">0</p>
+  
+  <h1>마우스 이벤트</h1>
+  <h2>click()이벤트</h2>
+  <div class="event1">
+    <ul>
+      <!--썸네일부분-->
+      <li><a href="image/flower.jpg" alt="꽃">꽃</a></li>
+      <li><a href="image/sea.jpg" alt="바다">바다</a></li>
+      <li><a href="image/fish.jpg" alt="해파리">해파리</a></li>
+      <li><a href="image/building.jpg" alt="건물">건물</a></li>
+    </ul>
+    <br>
+    <img src="image/flower.jpg" alt="꽃">
+    <!--위에서 썸네일 클릭시 큰이미지가 바뀌는 부분-->
+  </div>
+
+  <h2>click(),dblclick() 이벤트</h2>
+  <div class="event2">
+    <button id="btn1">click</button>
+    <button id="btn2">dblclick</button>
+    <p>내용</p>
+  </div>
+
+  <h2>마우스 오버와 아웃시 이벤트</h2>
+  <div class="event3">
+    <button id="btn1">mouseover/mouseout</button>
+    <button id="btn2">mouseenter/mouseleave</button>
+    <p>내용</p>
+  </div>
+
+  <h2>hover()이벤트(mouseenter+mouseleave)</h2>
+  <div class="event4">
+    <img src="image/sea.jpg" alt="바다">
+  </div>
+
+  <br><br>
+  <div class="event5"></div>
+
+  <h1>포커스 이벤트</h1>
+  <p><input type="text" name="user_name" id="user_name"></p>
+  <p><input type="text" name="user_id" id="user_id" value="아이디 입력"></p>
+  <hr>
+
+  <h1>기타 이벤트</h1>  
+  <select id="rel_site">
+    <option value="">사이트 선택</option>
+    <option value="www.naver.com">네이버</option>
+    <option value="www.nate.com">네이트</option>
+    <option value="www.daum.net">다음</option>
+  </select>
+  <p id="txt3"></p>
+  <hr>
+
+  <h1>index와 this</h1>
+  <ul id="menu">
+    <li><a href="#">내용1</a></li>
+    <li><a href="#">내용2</a></li>
+    <li><a href="#">내용3</a></li>
+    <li><a href="#">내용4</a></li>
+  </ul>
+  <p class="txt4"></p>
+
+
+  <!-- Script Source -->
+	<script src="js/jquery-3.7.1.min.js"></script>
+  <script>
+    $(document).ready(function(){
+
+      //클릭이벤트
+      $(".event1 ul li a").click(function(){
+        $(".event1 img").attr("src",$(this).attr("href"));
+        // $(this) -> .event1 ul li a: this는 누르는 순간의 것(상위 선택자)
+        return false;
+        //<a>태그에 기본기능(링크기능)을 차단시킴(a링크가 먼저 실행되서 자바스크립트가 실행되지 않기때문에) 
+      });
+
+      //클릭,더블클릭 이벤트
+      $(".event2 #btn1").click(function(){
+        $(".event2 p").css({"background-color":"yellowgreen"});
+      });
+      $(".event2 #btn2").dblclick(function(){
+        $(".event2 p").css({"background-color":"royalblue"});
+      });
+
+      //마우스를 올렸을때와 내렸을때 이벤트
+      $(".event3 #btn1").mouseover(function(){
+        $(".event3 p").css({"background-color":"pink"});
+      });
+      $(".event3 #btn1").mouseout(function(){
+        $(".event3 p").css({"background-color":"purple"});
+      });
+
+      $(".event3 #btn2").mouseenter(function(){
+        $(".event3 p").css({"background-color":"pink"});
+      });
+      $(".event3 #btn2").mouseleave(function(){
+        $(".event3 p").css({"background-color":"purple"});
+      });
+
+      //hover(mouseenter + mouseleave)
+      $(".event4 img").hover(function(){
+        $(this).attr("src","image/fish.jpg");
+      },function(){
+        $(this).attr("src","image/sea.jpg");
+      });
+
+      $(".event5").hover(function(){
+        $(this).css({"border-radius":"30px","transition":"1s"});
+      },function(){
+        $(this).css({"border-radius":"0px"});
+      });
+
+      //포커스이벤트
+      $("#user_name").focus(); //focus를 강제 발생
+
+      $("#user_id").focus(function(){ //focus가 나타났을때
+        $(this).val("");
+      });
+      $("#user_id").blur(function(){ //focus가 사라졌을때(input요소 바깥 빈부분을 클릭했을때)
+        $(this).val("아이디 입력");
+      });
+
+      //change 이벤트(선택한 요소에 입력요소의 값이 변경되었을때 이벤트가 발생)
+      $("#rel_site").change(function(){
+        $("#txt3").text($(this).val());
+      });
+
+      //index와 this(중요!!!!)
+      //index() -> 순서를 매겨줌(0,1,2,3.....)
+      //this는 처리시점을 나누기위해서 사용함(마우스를 올릴때(현재 선택된것)와 올리기전(기존에 선택되어 있는것))
+      $("#menu li").mouseenter(function(){
+        $("#menu li").css({"background-color":"transparent"}); //기존에 모든 li를 말함
+        $(this).css({"background-color":"yellow"}); //$(this)->"#menu li"를 말하며, 현재 선택된 li를 말함
+
+        let num = $(this).index(); //0,1,2,3
+        $(".txt4").text(num);
+      });
+
+      //scroll이벤트(스크롤바가 이동될 때마다 스크롤 탑위치값 나타내기)
+      $(window).scroll(function(){
+        $("#txt2").text($(this).scrollTop());
+      });
+
+    });
+  </script>
+</body>
+</html>

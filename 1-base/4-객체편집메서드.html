@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>4-객체편집메서드</title>
+</head>
+<body>
+  
+  <ul>
+    <li>내용</li>
+    <li>내용</li>
+    <li id="myList"><strong>내용</strong></li>
+    <li>내용</li>
+    <li>내용</li>
+  </ul>
+
+  <ul id="listZone">
+    <li>내용</li>
+    <li>내용</li>
+    <li>내용</li>
+    <li>내용</li>
+    <li>내용</li>
+  </ul>
+
+
+  <!-- Script Source -->
+	<script src="js/jquery-3.7.1.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      /*-------------------------------------------------------------------
+      *선택한 요소의 마지막위치에 새요소를 추가한다.
+      append() / appendTo() ->사용형식의 차이가 있을뿐 동작은 동일함
+      $("요소선택").append("새요소");
+      $("새요소").appendTo("요소선택"); 
+
+      *선택한 요소의 맨앞위치에 새요소를 추가한다.
+      prepend() / prependTo() 
+      $("요소선택").prepend("새요소");    
+      $("새요소").prependTo("요소선택");      
+      ------------------------------------------------------------------*/
+
+      $("#myList").before("<li>새 내용 추가1</li>");
+      $("#myList").after("<li>새 내용 추가2</li>");
+
+      $("#listZone").append("<li>새 내용 추가3</li>");
+      $("<li>새 내용 추가33</li>").appendTo("#listZone"); 
+
+      $("#listZone").prepend("<li>새 내용 추가4</li>");    
+      $("<li>새 내용 추가44</li>").prependTo("#listZone"); 
+    });
+  </script>
+
+</body>
+</html>

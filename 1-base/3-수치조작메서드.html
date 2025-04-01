@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>3-수치조작메서드</title>
+  <style>
+    #box1{
+      width: 200px;
+      height: 100px;
+      padding: 5px;
+      border: 10px solid red;
+      margin: 10px;
+    }
+    body{height: 4000px;}
+  </style>
+</head>
+<body>
+  
+  <p id="box1">박스1</p>
+  <p id="t1"></p>
+  <p id="t2"></p>
+  <p id="t3"></p>
+  <p id="box2">박스2</p>
+
+  <h1>scroll</h1>
+
+
+  
+
+  <!-- Script Source -->
+	<script src="js/jquery-3.7.1.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      /*-----------------------------------------------------
+      *안쪽여백과 선을 제외한 너비,높이값을 반환하거나 변환
+      width()
+      height()
+
+      *안쪽여백을 포함한 너비,높이값을 반환하거나 변환
+      innerWidth()
+      innerHeight()
+
+      *선과 안쪽여백을 포함한 너비,높이값을 반환하거나 변환
+      outerWidth()
+      outerHeight()     
+      -----------------------------------------------------*/
+
+      let w1 = $("#box1").width();
+      $("#t1").text(`너비: ${w1}`);
+
+      let w2 = $("#box1").innerWidth();
+      $("#t2").text(`너비: ${w2}`);
+
+      let w3 = $("#box1").outerWidth();
+      $("#t3").text(`너비: ${w3}`);
+
+      /*-----------------------------------------------------
+      scrollLeft(): 브라우저의 수평 스크롤 이동 너비값을 반환
+      scrollTop(): 브라우저의 수직 스크롤 이동 높이값을 반환
+      -----------------------------------------------------*/
+
+      //스크롤바를 숫자만큼 이동해서 경고창을 띄운다.(선택자는 무조건 window)
+      $(window).scrollTop(2000);
+      alert($(window).scrollTop());
+
+    });
+  </script>
+
+</body>
+</html>
