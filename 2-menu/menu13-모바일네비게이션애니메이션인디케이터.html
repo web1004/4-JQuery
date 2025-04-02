@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>menu13-모바일네비게이션애니메이션인디케이터</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="css/menu13.css">
+</head>
+
+<body>
+
+  <div class="navi">
+    <ul>
+      <li class="active">
+        <i class='bx bx-home'></i>
+        <span>home</span>
+      </li>
+      <li>
+        <i class='bx bx-user'></i>
+        <span>profile</span>
+      </li>
+      <li>
+        <i class='bx bx-message-rounded'></i>
+        <span>message</span>
+      </li>
+      <li>
+        <i class='bx bx-help-circle'></i>
+        <span>help</span>
+      </li>
+      <li>
+        <i class='bx bx-cog'></i>
+        <span>settings</span>
+      </li>
+      <div class="indicator"></div>
+    </ul>
+  </div>
+
+
+	<!-- Script Source -->
+	<script src="js/jquery-3.7.1.min.js"></script>
+	<script src="js/jquery-ui-1.10.4.custom.min.js"></script>
+  <script>
+    $('.navi ul li').click(function(){
+      $(this).addClass('active');
+      $(this).siblings().removeClass('active');
+    });
+  </script>
+</body>
+</html>

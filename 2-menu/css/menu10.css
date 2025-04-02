@@ -1,0 +1,32 @@
+@import url(reset.css);
+
+.gnb{
+  display: flex;
+  justify-content: center;
+}
+.gnb li{margin: 20px;}
+nav:nth-child(2){
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#horizontal-underline{
+  position: absolute;  /* 현재는 모니터를 기준으로 하고 있음, 부모영역안에서 시작점은 잡으려면 부모설정해주면 됨! */
+  width: 0;
+  background-color: crimson;
+  top: 0;
+  left:0;
+  height: 4px;
+  /* transition: 0.5s; */
+}
+#vertical-underline{
+  position: absolute;
+  left:0;
+  height: 4px;
+  width:0px;
+  border-radius: 3px;
+  transition: 0.5s;
+  background-color: royalblue;
+  top:0px;
+  left:0;
+}
