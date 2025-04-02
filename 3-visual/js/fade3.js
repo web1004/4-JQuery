@@ -11,16 +11,16 @@ $(document).ready(function(){
       count = $img.length;
 
   //이미지 전환효과 함수
-  function changeImg(newImg){ 
+  function changeImg(newImg){
     if(oldImg != newImg){
       $img.eq(oldImg).removeClass("imgVisible");
       $img.eq(newImg).addClass("imgVisible");
-    }
+    };
     oldImg = newImg;
   };
 
   //텍스트 전환효과 함수
-  function changeText(newText){ 
+  function changeText(newText){
     if(oldText != newText){
       $text.eq(oldText).removeClass("textVisible");
       $text.eq(newText).addClass("textVisible");
@@ -35,7 +35,7 @@ $(document).ready(function(){
       newImg=0;
     }
     changeImg(newImg);
-  };
+  }; 
   function autoText(){
     newText++;
     if(newText>count-1){ 
@@ -45,12 +45,12 @@ $(document).ready(function(){
   };
   timerImg = setInterval(autoImg,4000); 
   timerText = setInterval(autoText,4000);
-  
+
   //좌우버튼
   $lbtn.click(function(){
     newImg--;
-    if(newImg < 0){ 
-      newImg=count-1;  
+    if(newImg<0){ 
+      newImg=count-1;
     }
     changeImg(newImg);
 
@@ -74,7 +74,7 @@ $(document).ready(function(){
     changeText(newText);
   });
 
-  //마우스오버 멈춤
+  //마우스오버시 멈춤
   $(".fadeShow").mouseenter(function(){
     clearInterval(timerImg);
     clearInterval(timerText);
