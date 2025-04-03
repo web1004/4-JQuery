@@ -1,0 +1,37 @@
+@import url(reset.css);
+@import url('https://cdn.jsdelivr.net/npm/@xpressengine/xeicon@2.3.3/xeicon.min.css');
+
+body {
+  background-color: #000;
+  color: #fff;
+  font-weight: 300;
+  color: #fff;
+}
+
+section{
+  width: 700px;
+  margin: auto;
+}
+section h1 {
+  text-align: center;
+  font-size: 50px;
+  font-weight: 500;
+}
+.accordion .title,
+.accordion .content {
+  background-color: #303030;
+  padding: 10px 15px;
+  margin-bottom: 7px;
+}
+.accordion .title {cursor: pointer;}
+.accordion .title:after {
+  content: '\e9c5';
+  font-family: xeicon;
+  float: right;
+  margin-top: 5px;
+  transition: 0.35s;
+}
+.accordion .title.active:after {transform: rotate(45deg);} /* JQuery에서 active클래스 생성및 삭제 */
+.accordion .title.active {background-color: #7f97cb;}
+.accordion .content {display: none;}
+.accordion .content.active{display: block;} /* JQuery에서 active클래스 생성및 삭제 */

@@ -1,0 +1,74 @@
+@import url(reset.css);
+
+h2{
+	text-align: center;
+	margin: 50px 0 20px;
+	text-transform: capitalize;
+	font-size: 45px;
+	color: #333;
+}
+
+#gallery{ 
+	width:1000px;
+	height:630px;
+	position:relative;
+	margin: auto;
+}
+#gallery img{display: block;}
+.largeImg li{
+	width:1000px;
+	height:630px;
+	display:none;
+	position:absolute;
+	top:0;
+	left:0;
+}
+.largeImg li:first-child{display:block;}
+.largeImg li img{
+	width: inherit;
+	height: inherit;
+	object-fit: cover;
+}
+
+.thumbs{
+	position:absolute;
+	bottom:20px;	
+	left:50%;
+	transform: translateX(-50%);
+	display: flex;	
+	column-gap: 10px;
+}
+.thumbs li{
+	opacity:0.7;
+	border: 3px solid #fff;
+}
+.thumbs li:first-child{opacity:1;}
+.thumbs li a img{
+	width:75px;
+	height:57px;
+}
+.left_btn, .right_btn{
+	position:absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+.left_btn{left:0;}
+.right_btn{right:0;}
+
+
+/*이미지별 텍스트*/
+.imgText li{
+	position:absolute;
+	top: 50px;
+	left: 0;
+	display:none;
+}
+.imgText li:first-child{display:block;}
+.imgText li strong{
+	padding: 0 50px 0 20px;
+	font-size:42px;
+	color: #fff;
+	text-transform: capitalize;
+	font-family: "Raleway", sans-serif;
+	background: linear-gradient(to right, #000 40%, transparent);
+}

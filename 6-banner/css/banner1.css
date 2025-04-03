@@ -1,0 +1,81 @@
+@import url(reset.css);
+
+.news{
+	width:700px;
+	height:400px;
+	margin:0 auto;
+	padding: 20px;
+	/* border: 1px solid #000; */
+}
+.news h2{
+	text-align: center;
+	font-size: 28px;
+	color: crimson;
+	margin-bottom: 20px;
+	font-weight: bold;
+	position: relative;
+}
+.news h2:before, 
+.news h2:after{
+  content: '';
+  background-color: crimson;
+  width: 40%;
+  height: 1px;
+  position: absolute;
+  top: 20px;
+}
+.news h2:before{left: 0;}
+.news h2:after{right: 0;}
+
+.news_in{
+	/* border: 1px solid red; */
+	position: relative;
+	width: 100%;
+	height: 300px;
+}
+.news_list li{  /* 모든 뉴스내용을 동일한 위치에 설정하고 모두 안보이게 함 */
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+	display:none;
+}
+.news_list li:first-child{display:inline-block;}  /* 첫번째거만 보이게 함 */
+.news_img{
+	float: left;
+	width: 250px;
+	margin-right: 20px;
+}
+.news_img img{width: 250px;}
+.news_text h3{
+	margin-bottom: 10px;
+	font-size: 18px;
+	font-weight: 500;
+}
+.news_text p{
+	font-size: 14px;
+	color: #666;
+	line-height: 22px;
+}
+.news_text strong{
+	display: block;
+	margin-top: 20px;
+	text-align: right;
+	font-weight: normal;
+	color: royalblue;
+}
+
+.nbtn{
+	position: absolute;
+	right: 20px;
+	bottom: 20px;
+}
+.fa{
+	background-color: #ddd;
+	padding: 2px 5px;
+	border-radius: 3px;
+	font-size: 20px;
+	margin-right: 3px;
+	cursor: pointer;
+}
+.fa:hover{color: crimson;}

@@ -1,0 +1,91 @@
+@import url(reset.css);
+
+header{
+	width: 1100px;
+	height: 400px;
+	margin: auto;
+	position: relative;
+}
+.image{
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 100;
+	transition: 0.5s;
+}
+header dl{
+	position: absolute;
+	z-index: 200;
+}
+header dl dt { /*탭부분*/
+	/* position: relative; */
+	width: 60px;
+	height: 400px;
+	background: rgba(51, 102, 204, 0.6);
+	border-right: 1px solid rgba(2555, 255, 255, 0.4);
+	float: left;
+	box-sizing: border-box;
+	cursor: pointer;
+	writing-mode: horizontal-tb;  /* 세로글자 */
+	transition: 0.3s;
+}
+header dl dt span {
+	display: block;
+	color: #fff;
+	width: 20px;
+	/* border: 1px solid #000; */
+	margin: auto;
+	font-size: 17px;
+	margin-top: 20px;
+	font-weight: normal;
+}
+dt.selected { /* JQuery에서 active클래스 생성및 삭제 */
+	/* cursor: default; ->화살표모양을 다시 나오게함*/
+	background: rgba(5, 55, 155, 0.9);
+}
+
+header dl dd { /*각 탭의 내용*/
+	width: 800px;
+	height: 500px;
+	display: none;
+	float: left;
+	position: relative;
+	overflow: auto;
+	/*background:pink;*/
+}
+header dl dd:first-of-type {display: block;}
+.content {padding: 30px;}
+.content .title {
+	font-size: 42px;
+	font-weight: normal;
+	text-transform: uppercase;
+	margin-bottom: 25px;
+	color: #fff;
+}
+.content .description {
+	color: #fff;
+	font-size: 12px;
+	line-height: 20px;
+}
+.content .read-more {
+	font-size: 14px;
+	text-transform: uppercase;
+	display: inline-block;
+	padding: 8px 16px;
+	margin-top: 20px;
+	border: 1px solid rgba(2555, 255, 255, 0.6);
+}
+.content .read-more a {color: #fff;}
+
+.text{  /* JQuery에서 data속성을 이용항 텍스트출력 */
+	/* background-color: yellow; */
+	width: 800px;
+	height: 100px;
+	position: absolute;
+	top: 100%;
+}
+.text p{
+	font-size: 32px;
+	font-weight: bold;
+	color: #222;
+}

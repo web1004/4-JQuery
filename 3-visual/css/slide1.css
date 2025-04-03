@@ -1,0 +1,30 @@
+@import url(reset.css);
+
+/* Slide horizontal Animation */
+.slide-horizontal{
+  width: 940px;
+  height: 430px;
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+}
+.slide-horizontal-items{
+  width: 4700px; /* 자식을 모두 포함한 총가로너비(940*5) */
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Slide vertical Animation */
+.slide-vertical{
+  width: 940px;
+  height: 430px;
+  margin: 100px auto;
+  position: relative;
+  overflow: hidden;
+}
+.slide-vertical-items{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
