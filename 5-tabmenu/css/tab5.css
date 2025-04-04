@@ -34,7 +34,7 @@
 .tab li.active{color:#fff;} /*1번째 선택된 글자색 */
 .tab-highlight{  /*현재 선택된 탭메뉴->옆으로 이동하는 박스*/
   background:#000; 
-  width: 160px;
+  width: 160px;  /* 탭이 이동하는 거리 */
   height:70px; 
   position:absolute;
   width:160px;

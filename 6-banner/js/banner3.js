@@ -1,46 +1,44 @@
 $(document).ready(function(){
 
-  let bannerWidth= $(".ban ul li").width()+10;
-  let bannerNum = 0; 
+  let bannerWidth= $(".ban ul li").width()+10; //배너간 오른쪽여백이 있는 경우 여백만큼(10px) 더해줌
+
+  //목록 마지막 이미지를 목록 안의 가장 앞으로 먼저 배치
+  $(".ban ul li:last").prependTo(".ban ul");
+  //첫번째 이미지가 보여야 하므로 앞으로 온 맨뒤 이미지를 왼쪽으로 한칸 밀어두기
+  $(".ban ul").css({"left":-bannerWidth+"px"});
+
+  //자동으로 슬라이드 함수생성
+  function bannerAuto(){
+    $(".ban ul").stop().animate({left:"-="+bannerWidth+"px"},500,function(){
+      $(".ban ul li:first-child").appendTo(".ban ul"); //마지막 이미지가 맨앞로 이동
+      $(this).css({left:-bannerWidth+"px"}); //다음 움직임을 위해 초기화(최종목적지)
+    });
+  };
+  //setInterval(함수명,재생시간); ==>재생시간 간격으로 함수자동실행
+  //clearInterval(변수명); ==>자동함수 멈추게함
+  bannerTimer = setInterval(bannerAuto,4000);
 
   //이전보기
   $(".ban_btn .ban_left").click(function(){
-    if(bannerNum>0){
-      $(".ban ul").stop().animate({left:"+="+bannerWidth+"px"},500);
-      bannerNum--;
-
-      //이미지가 처음 또는 마지막일때 좌우버튼 이미지 바꾸기
-      if(bannerNum==0){
-        $(".ban_btn .ban_left").html("<i class='fa-solid fa-backward-step'></i>");
-      }else{
-        $(".ban_btn .ban_left").html("<i class='fa-solid fa-caret-left'></i>");
-      };
-      if(bannerNum==6){
-        $(".ban_btn .ban_right").html("<i class='fa-solid fa-forward-step'></i>");
-      }else{
-        $(".ban_btn .ban_right").html("<i class='fa-solid fa-caret-right'></i>");
-      };
-    };
+    $(".ban ul").stop().animate({left:"+="+bannerWidth+"px"},500,function(){
+      $(".ban ul li:last-child").prependTo(".ban ul"); //마지막 이미지가 맨앞로 이동
+      $(this).css({left:-bannerWidth+"px"}); //다음 움직임을 위해 초기화(최종목적지)
+    });
   });
-
 
   //다음보기
   $(".ban_btn .ban_right").click(function(){
-    if(bannerNum<6){  //전체개수의 절반정도 설정하면 마지막이미지가 나오는 index번호
-      $(".ban ul").stop().animate({left:"-="+bannerWidth+"px"},500);
-      bannerNum++;
-    };
-
-    //이미지가 처음 또는 마지막일때 좌우버튼 이미지 바꾸기
-    if(bannerNum==0){
-      $(".ban_btn .ban_left").html("<i class='fa-solid fa-backward-step'></i>");
-    }else{
-      $(".ban_btn .ban_left").html("<i class='fa-solid fa-caret-left'></i>");
-    };
-    if(bannerNum==6){
-      $(".ban_btn .ban_right").html("<i class='fa-solid fa-forward-step'></i>");
-    }else{
-      $(".ban_btn .ban_right").html("<i class='fa-solid fa-caret-right'></i>");
-    };
+    $(".ban ul").stop().animate({left:"-="+bannerWidth+"px"},500,function(){
+      $(".ban ul li:first-child").appendTo(".ban ul"); //마지막 이미지가 맨앞로 이동
+      $(this).css({left:-bannerWidth+"px"}); //다음 움직임을 위해 초기화(최종목적지)
+    });
   });
+
+  //마우스오버시 멈춤(좌우버튼을 누를때는 자동함수가 실행이 안되게 함)
+  $(".banner").hover(function(){ //버튼을 포함한 전체영역에 마우스를 올리면....
+    clearInterval(bannerTimer);
+  },function(){
+    bannerTimer = setInterval(bannerAuto,4000);
+  });
+
 });

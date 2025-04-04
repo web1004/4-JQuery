@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5-마우스포인터따라다니는돋보기기능만들기</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+    *{ 
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+			height: 100vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: #e9226e;
+		}
+    .heading{
+      font-family: 'Raleway', sans-serif; 
+      color: #fff; 
+			font-size: 112px;
+      user-select: none;
+			/* user-select속성은 사용자가 텍스트를 선택할수 있는지 지정함
+			none값은 이 요소와 아래 요소의 텍스트를 선택하지 못하도록 막음 */
+    }
+    .cursor{
+      background-color: #fff;
+      width: 30px; 
+      height: 30px;
+      border-radius: 50%;
+      position: fixed;
+			top: 0; 
+			left: 0;
+			transition: 0.1s;
+      pointer-events: none; /* 포인터 이벤트의 대상이 아님 */
+			mix-blend-mode: difference;  /* 혼합모드설정(포토샵의 블렌드모드와 동일) */
+
+      /* pointer-events 속성
+      특정 그래픽 요소가 포인터 이벤트의 대상이 될 수 있는 상황(있는 경우)을 설정
+
+      pointer-events: auto;
+      pointer-events: none;
+      pointer-events: stroke;
+      pointer-events: fill;
+
+      */
+    }
+
+    /* Cursor Hover Effect */
+		.heading:hover + .cursor {
+			transform: scale(10);
+		}
+  </style>
+</head>
+<body>
+
+  <h1 class="heading">WebD1004.pe.kr</h1>
+  <div class="cursor"></div>
+  
+
+  <!-- Script Source -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      
+      //event.clientX  event.clientY : 브라우저 화면기준 X,Y 좌표
+      //event.pageX    event.pageY : 전체화면 기준(스크롤포함) X,Y 좌표 
+			$(window).mousemove(function(e){
+        console.log(e);
+				$(".cursor").attr("style","top: " + (e.pageY - 15) + "px; left: " + (e.pageX - 15) + "px;");
+			});
+			
+		});
+  </script>
+</body>
+</html>

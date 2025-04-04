@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>4-더보기버튼누르면숨겨진내용로드(load)하기</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap');
+    *{ 
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    .container h2{
+			font-family: 'Raleway', sans-serif;
+			text-transform: capitalize;
+			font-size: 36px;
+			text-align: center;
+			margin: 30px 0;
+		}
+		.port-list{
+			width: 1200px;
+			margin: auto;
+		}
+    .port-list ul{
+			width: inherit;
+			margin: auto;
+			display: flex;
+			justify-content: space-between;
+			flex-wrap: wrap; 
+		}
+		.port-list ul li{
+			display: none;
+			width: 380px;
+			height: 320px;
+			margin-bottom: 30px;
+			box-shadow:0px 0px 7px #999;
+			border-radius: 20px;
+			overflow: hidden;
+		}
+
+		.port-list .thums{
+			width: 100%;
+			height: 250px;
+		}
+		.port-list .thums img{
+			width: inherit;
+			height: inherit;
+			object-fit: cover;
+		}
+		.port-list .desc{
+			padding:15px 0 15px 10px;
+			color:#119ec0;
+		}
+
+		.load-more {
+			display: block;
+			background-color: crimson;
+			color: #fff;
+			border: none;
+			padding: 10px;
+			cursor: pointer;
+			border-radius: 5px;
+			margin: 20px auto;
+		}
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>portfolio list</h2>
+    <div class="port-list">
+      <ul>
+        <li>
+          <div class="thums">
+						<img src="image/po1.jpg" alt="제품/기계설계_이동주">
+					</div>
+					<div class="desc">
+						제품/기계설계_이동주
+					</div>	
+        </li>
+        <li>
+					<div class="thums">
+						<img src="image/po2.jpg" alt="건축인테리어_이채현">
+					</div>
+					<div class="desc">
+						건축인테리어_이채현
+					</div>	
+				</li>
+				<li>
+					<div class="thums">
+						<img src="image/po3.jpg" alt="영상편집_이화평">
+					</div>
+					<div class="desc">
+						영상편집_이화평
+					</div>	
+				</li>
+				<li>
+					<div class="thums">
+						<img src="image/po4.jpg" alt="출판편집_박진하">
+					</div>
+					<div class="desc">
+						제품/기계설계_이동주
+					</div>	
+				</li>
+				<li>
+					<div class="thums">
+						<img src="image/po5.jpg" alt="웹디자인/웹퍼블리셔_연희진">
+					</div>
+					<div class="desc">
+						웹디자인/웹퍼블리셔_연희진
+					</div>	
+				</li>
+				<li>
+					<div class="thums">
+						<img src="image/po6.jpg" alt="제품/기계설계_오윤호">
+					</div>
+					<div class="desc">
+						제품/기계설계_오윤호
+					</div>	
+				</li>
+				<li>
+					<div class="thums">
+						<img src="image/po7.jpg" alt="영상편집_홍현민">
+					</div>
+					<div class="desc">
+						영상편집_홍현민
+					</div>	
+				</li>
+				<li>
+					<div class="thums">
+						<img src="image/po8.jpg" alt="건축인테리어_이유민">
+					</div>
+					<div class="desc">
+						건축인테리어_이유민
+					</div>	
+				</li>
+				<li>
+					<div class="thums">
+						<img src="image/po9.jpg" alt="출판편집_김다슬">
+					</div>
+					<div class="desc">
+						출판편집_김다슬
+					</div>	
+				</li>
+				<li>
+					<div class="thums">
+						<img src="image/po10.jpg" alt="웹디자인/웹퍼블리셔_김도이">
+					</div>
+					<div class="desc">
+						웹디자인/웹퍼블리셔_김도이
+					</div>	
+				</li>
+				<li>
+					<div class="thums">
+						<img src="image/po11.jpg" alt="제품/기계설계_이지은">
+					</div>
+					<div class="desc">
+						제품/기계설계_이지은
+					</div>	
+				</li>
+				<li>
+					<div class="thums">
+						<img src="image/po12.jpg" alt="건축인테리어_박유선">
+					</div>
+					<div class="desc">
+						건축인테리어_박유선
+					</div>	
+				</li>
+				<li>
+					<div class="thums">
+						<img src="image/po13.jpg" alt="웹디자인/웹퍼블리셔_임예솔">
+					</div>
+					<div class="desc">
+						웹디자인/웹퍼블리셔_임예솔
+					</div>	
+				</li>
+				<li>
+					<div class="thums">
+						<img src="image/po14.jpg" alt="출판편집_김지연">
+					</div>
+					<div class="desc">
+						출판편집_김지연
+					</div>	
+				</li>
+				<li>
+					<div class="thums">
+						<img src="image/po15.jpg" alt="건축인테리어_김해주">
+					</div>
+					<div class="desc">
+						건축인테리어_김해주
+					</div>	
+				</li>
+				<li>
+					<div class="thums">
+						<img src="image/po16.jpg" alt="영상편집_김유정">
+					</div>
+					<div class="desc">
+						영상편집_김유정
+					</div>	
+				</li>
+				<li>
+					<div class="thums">
+						<img src="image/po17.jpg" alt="웹디자인/웹퍼블리셔_박산아">
+					</div>
+					<div class="desc">
+						웹디자인/웹퍼블리셔_박산아
+					</div>	
+				</li>
+				<li>
+					<div class="thums">
+						<img src="image/po18.jpg" alt="출판편집_양승혜">
+					</div>
+					<div class="desc">
+						출판편집_양승혜
+					</div>	
+				</li>
+      </ul>
+    </div>
+  </div>
+
+  <button class="load-more">Load More</button>
+  
+
+  <!-- Script Source -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+    /* 
+		$('선택요소').slice(시작번호,종료번호) ->요소의 시작인덱스번호와 종료인덱스전까지선택(종료인덱스번호가 없으면 끝까지 자동으로 선택됨)
+		$('선택요소:hidden') -> 해당요소를 보이지않게 하는 선택자로 CSS에서 dusplay:none인 요소를 선택하는 선택자
+		*/
+
+    $(document).ready(function(){
+
+      // 최초에 3개 보이기
+      $('.port-list ul li').slice(0, 3).show();  //0,1,2까지 보임
+
+      // 버튼 클릭하면 3개씩 더 보이기
+      $('.load-more').click(function () {
+        $('.port-list ul li:hidden').slice(0, 3).fadeIn();
+        //더이상 보여질 이미지가 없으면 버튼은 사라지게 하기
+        if($('.port-list ul li:hidden').length == 0) {
+					$(this).hide()
+				}
+      });
+    
+    });
+  </script>
+</body>
+</html>

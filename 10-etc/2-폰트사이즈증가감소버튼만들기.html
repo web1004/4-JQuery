@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2-폰트사이즈증가감소버튼만들기</title>
+  <style>
+    *{ 
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    .frame{
+      width: 1000px;
+      margin: 30px auto;
+    }
+    .buttons{
+      text-align: right;
+      margin-bottom: 30px;
+    }
+    .btn-font {
+      border: none;
+      background-color: #eee;
+      border-radius: 2px;
+      margin: 2px;
+      cursor: pointer;
+    }
+    .btn-font:nth-child(1) {font-size: 1rem;}
+    .btn-font:nth-child(2) {font-size: 1.25rem;}
+    .btn-font:nth-child(3) {font-size: 1.5rem;}
+    .btn-font.active {
+      background-color: #555;
+      color: #fff;
+    }
+    .contents {
+      line-height: 1.6;
+      transition: 0.5s;
+      color: #666;
+    }
+    .contents p{margin-top: 30px;}
+    .contents h2 {
+      position: relative;
+      padding-bottom: 20px;
+    }
+    .contents h2:before {
+      content: '';
+      position: absolute;
+      width: 100px;
+      height: 4px;
+      background-color: dodgerblue;
+      bottom: 0;
+      left: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="frame">
+    <div class="buttons">
+      <button class="btn-font active">가</button>
+      <button class="btn-font">가</button>
+      <button class="btn-font">가</button>
+    </div>
+    <div class="contents">
+      <h2>제목글자</h2>
+      <p>
+        모든 국민은 양심의 자유를 가진다. 대한민국은 민주공화국이다. 국민경제자문회의의 조직·직무범위 기타 필요한 사항은 법률로 정한다. 국가는 농수산물의 수급균형과 유통구조의 개선에 노력하여 가격안정을 도모함으로써 농·어민의 이익을 보호한다. 법률이 헌법에 위반되는 여부가 재판의 전제가 된 경우에는 법원은 헌법재판소에 제청하여 그 심판에 의하여 재판한다. 국무회의는 대통령·국무총리와 15인 이상 30인 이하의 국무위원으로 구성한다. 대통령은 법률안의 일부에 대하여 또는 법률안을 수정하여 재의를 요구할 수 없다. 대통령의 국법상 행위는 문서로써 하며, 이 문서에는 국무총리와 관계 국무위원이 부서한다. 군사에 관한 것도 또한 같다.
+
+        국민의 모든 자유와 권리는 국가안전보장·질서유지 또는 공공복리를 위하여 필요한 경우에 한하여 법률로써 제한할 수 있으며, 제한하는 경우에도 자유와 권리의 본질적인 내용을 침해할 수 없다. 국회에 제출된 법률안 기타의 의안은 회기중에 의결되지 못한 이유로 폐기되지 아니한다. 다만, 국회의원의 임기가 만료된 때에는 그러하지 아니하다. 군인·군무원·경찰공무원 기타 법률이 정하는 자가 전투·훈련등 직무집행과 관련하여 받은 손해에 대하여는 법률이 정하는 보상외에 국가 또는 공공단체에 공무원의 직무상 불법행위로 인한 배상은 청구할 수 없다. 근로조건의 기준은 인간의 존엄성을 보장하도록 법률로 정한다.
+      </p>
+    </div>
+  </div>
+
+
+  <!-- Script Source -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      // 폰트사이즈 증감
+      $('.btn-font').eq(0).click(function(){
+        $('.contents').css({'font-size': '1rem'})
+      });
+      $('.btn-font').eq(1).click(function(){
+        $('.contents').css({'font-size': '1.25rem'})
+      });
+      $('.btn-font').eq(2).click(function(){
+        $('.contents').css({'font-size': '1.5rem'})
+      });
+
+      // 클릭된 버튼 디자인 변경
+      $('.btn-font').click(function(){
+        $(this).addClass('active').siblings().removeClass('active');
+      });
+
+    });
+  </script>
+</body>
+</html>

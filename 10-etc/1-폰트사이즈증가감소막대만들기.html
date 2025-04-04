@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>1-폰트사이즈증가감소막대만들기</title>
+  <style>
+    *{ 
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    .frame {
+      background-color: #fff; width: 600px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      padding: 20px; 
+      margin: 50px auto;
+      border-radius: 20px;
+    }
+    .preview { padding-top: 20px; }
+  </style>
+</head>
+<body>
+
+  <div class="frame">
+    <div>
+      <span class="fontsize-value"></span>  <!-- 폰트사이즈 표시 -->
+      <input type="range" name="range" id="range-slider" min="14" max="100" value="18" step="1">
+    </div>
+    <div class="previw">
+      <p class="preview-text">
+        모든 국민은 양심의 자유를 가진다. 대한민국은 민주공화국이다. 국민경제자문회의의 조직·직무범위 기타 필요한 사항은 법률로 정한다. 국가는 농수산물의 수급균형과 유통구조의 개선에 노력하여 가격안정을 도모함으로써 농·어민의 이익을 보호한다. 법률이 헌법에 위반되는 여부가 재판의 전제가 된 경우에는 법원은 헌법재판소에 제청하여 그 심판에 의하여 재판한다. 국무회의는 대통령·국무총리와 15인 이상 30인 이하의 국무위원으로 구성한다. 대통령은 법률안의 일부에 대하여 또는 법률안을 수정하여 재의를 요구할 수 없다. 대통령의 국법상 행위는 문서로써 하며, 이 문서에는 국무총리와 관계 국무위원이 부서한다. 군사에 관한 것도 또한 같다.
+
+        국민의 모든 자유와 권리는 국가안전보장·질서유지 또는 공공복리를 위하여 필요한 경우에 한하여 법률로써 제한할 수 있으며, 제한하는 경우에도 자유와 권리의 본질적인 내용을 침해할 수 없다. 국회에 제출된 법률안 기타의 의안은 회기중에 의결되지 못한 이유로 폐기되지 아니한다. 다만, 국회의원의 임기가 만료된 때에는 그러하지 아니하다. 군인·군무원·경찰공무원 기타 법률이 정하는 자가 전투·훈련등 직무집행과 관련하여 받은 손해에 대하여는 법률이 정하는 보상외에 국가 또는 공공단체에 공무원의 직무상 불법행위로 인한 배상은 청구할 수 없다. 근로조건의 기준은 인간의 존엄성을 보장하도록 법률로 정한다.
+
+        대통령이 임시회의 집회를 요구할 때에는 기간과 집회요구의 이유를 명시하여야 한다. 법률안에 이의가 있을 때에는 대통령은 제1항의 기간내에 이의서를 붙여 국회로 환부하고, 그 재의를 요구할 수 있다. 국회의 폐회중에도 또한 같다. 법관은 탄핵 또는 금고 이상의 형의 선고에 의하지 아니하고는 파면되지 아니하며, 징계처분에 의하지 아니하고는 정직·감봉 기타 불리한 처분을 받지 아니한다. 위원은 정당에 가입하거나 정치에 관여할 수 없다. 국민경제의 발전을 위한 중요정책의 수립에 관하여 대통령의 자문에 응하기 위하여 국민경제자문회의를 둘 수 있다. 모든 국민은 고문을 받지 아니하며, 형사상 자기에게 불리한 진술을 강요당하지 아니한다.
+      </p>
+    </div>
+  </div>
+
+
+  <!-- Script Source -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+
+      // 최초에 폰트사이즈 설정
+      $(".preview-text").css({"font-size": $("#range-slider").val() + "px"});
+
+      // 변경할 때 폰트사이즈 설정
+      $("#range-slider").change(function(){
+        let $fontSize = $(this).val()
+        $(".preview-text").css({"font-size": $fontSize + "px"});
+        $(".fontsize-value").text($fontSize + "px");
+      });
+
+    });
+  </script>
+</body>
+</html>

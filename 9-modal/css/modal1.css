@@ -1,0 +1,57 @@
+@import url(reset.css);
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {box-sizing: border-box;}
+body {
+  font-family: 'Raleway', sans-serif;
+  font-size: 18px;
+  margin: 50px;
+  line-height: 1.5em;
+}
+
+/* Modal with target selector */
+.modal { /* 모달창 검정배경(가로세로100%) */
+  background-color: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  display: none;
+}
+
+.modal-content {  /* 모달에 띄울 내용창 */
+  background-color: #fff;
+  width: 350px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  padding: 30px;
+}
+.modal-content h2{
+  font-weight: bold;
+  font-size: 28px;
+}
+.modal-content img {
+  display: block;
+  margin: 20px auto;
+}
+.btn-guide {
+  background-color: #175fa2;
+  color: #fff;
+  font-size: 14px;
+  padding: 5px;
+  border-radius: 5px;
+  display: block;
+  margin-top: 15px;
+}
+.btn-close {
+  color: #999;
+  position: absolute;
+  right: 15px;
+  top: 10px;
+}

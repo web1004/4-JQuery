@@ -1,0 +1,32 @@
+@import url(reset.css);
+
+header {
+  background-color: darkturquoise;
+  text-align: center;
+  height: 50px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+}
+header .gnb {
+  padding-right: 30px;
+  font-size: 18px;
+}
+header .gnb a{
+  display: inline-block;
+  margin: 0 10px;
+}
+/* 섹션별로 가로세로 FullScreen */
+section {
+  height: 100vh;
+  background-color: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+section h1 {font-size: 60px;}
+section:nth-of-type(odd) {
+  background-color: #ccc;
+}

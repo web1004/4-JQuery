@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>3-라이트모드와다크모드전환하기</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500&display=swap');
+    @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css");
+    *{ 
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: "Montserrat", sans-serif;
+      font-size: 15px;
+      line-height: 1.5;
+      color: #222;
+    }
+    a {
+      text-decoration: none;
+      color: #222;
+    }
+
+
+    /* Light Mode CSS */
+    .container {
+      background-color: #fff;
+      height: 100vh;
+    }
+    .container * {transition: 0.35s;}
+    header {
+      display: flex;
+      justify-content: center;
+      height: 80px;
+      background-color: #e7e8e9;
+    }
+    nav {
+      /* border: 1px solid #000; */
+      width: 1200px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .gnb a {
+      text-transform: uppercase;
+      margin: 0 10px;
+      font-weight: 500;
+    }
+    .mode {cursor: pointer;}
+    .mode:before {
+      content: '\F497';
+      font-family: bootstrap-icons;
+      font-size: 18px;
+      background-color: #000;
+      color: #fff;
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 30px;
+    }
+    section {
+      display: flex;
+      justify-content: center;
+      height: 100vh;
+      align-items: center;;
+    }
+    .section-inner {
+      width: 1200px;
+      text-align: center;
+    }
+    .section-inner h2 {
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+    .section-inner p {
+      font-size: 20px;
+      color: #666;
+    }
+    .section-inner .like {
+      width: 100px;
+      height: 100px;
+      margin: 50px auto 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .section-inner .like:before {
+      content: '\F31E';
+      font-family: bootstrap-icons;
+      font-size: 100px;
+      color: crimson;
+    }
+
+    
+    /* Dark Mode CSS */
+    .container.dark header {background-color: #000;}
+    .container.dark .gnb a {color: #fff;}
+    .container.dark .logo img {filter: invert(100%);}
+    .container.dark section {background-color: #333;}
+    .container.dark .section-inner {color: #fff;}
+    .container.dark .section-inner .like:before {
+      content: '\F735';
+      color: gold;
+    }
+    .container.dark .mode:before {
+      content: '\F1D2';
+      color: #000;
+      background-color: #fff;
+    }
+  </style>
+</head>
+<body>
+	
+  <div class="container">
+    <header>
+      <nav>
+        <div class="logo">
+          <img src="image/logo.png" alt="logo">
+        </div>
+        <div class="gnb">
+          <a href="#none">home</a>
+          <a href="#none">about</a>
+          <a href="#none">portfolio</a>
+          <a href="#none">contact</a>
+        </div>
+        <div class="mode"></div>
+      </nav>
+    </header>
+    <section>
+      <div class="section-inner">
+        <h2>Switch between light mode and dark mode</h2>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur maxime natus cumque consectetur explicabo ipsam illo laudantium odit ullam, porro beatae dolor architecto aspernatur commodi id eius quisquam eos adipisci deserunt sit repellendus velit dolorum! Eveniet facere mollitia ipsum nobis, esse excepturi molestias, voluptates aut cupiditate ut sit minus illo itaque quam nihil rerum? Rem iure aspernatur possimus voluptates, similique iusto magnam molestias debitis corporis distinctio quia cupiditate consequatur illum minus esse voluptatibus, sit corrupti repellat illo quisquam, nulla suscipit ut? Officiis odio hic assumenda, ea vitae sapiente necessitatibus fugiat id deserunt, obcaecati minus ipsam quia nihil praesentium quasi dolor!
+        </p>
+        <div class="like"></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Script Source -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+    $('.mode').click(function(){
+      $('.container').toggleClass('dark');
+    });
+  </script>
+  
+</body>
+</html>

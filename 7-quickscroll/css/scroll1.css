@@ -1,0 +1,70 @@
+@import url(reset.css);
+
+#contain{
+	width:1200px;
+	height: 100vh;
+	margin:auto;
+	position:relative;
+}
+section{
+	width: 100%;
+	background-color: royalblue;
+}
+section p{
+	font-size: 55px;
+	color: #fff;
+}
+
+
+
+/* QUICK MENU */
+.quick{
+	position:absolute;
+	width:87px;
+	top: 50px;
+	left:100%; /*section 옆에 바로 위치*/
+	overflow: hidden;
+	background-color: #fff;
+	border: 1px solid #777;
+	border-radius: 0 10px 10px 0;
+	text-align: center;
+}
+.quick-menu {
+	width: 100%;
+	margin: auto;
+
+}
+.quick-menu .title{
+	text-transform: uppercase;
+}
+.quick-menu li{
+	width: 100%;
+	height: 70px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.quick-menu li:nth-child(1){
+	background-color: #777;
+	color: #fff;
+}
+.quick-menu li span{
+	display: block;
+}
+.quick-menu li a{
+	font-size: 14px;
+}
+.fa-solid{
+	font-size: 24px;
+}
+.quick-menu li:not(.topmove):hover .fa-solid,
+.quick-menu li:not(.topmove):hover a
+{color: orangered;}
+
+.quick-menu li:last-child(){
+	background-color: orangered;
+}
+.topmove{
+	cursor:pointer;
+	color: orangered;
+}
