@@ -53,24 +53,26 @@ body{
 
 /*각 목록별 나오는 모달팝업 내용 나오는 부분*/
 .modal-content{   /*팝업내용박스*/
-	/* border: 5px solid #000; */
 	position:absolute;
 	width:1200px;
 	min-height: 100%;
 	background-color:#fff;
+
 }
 .modal-content>li{
 	display:none;
 	text-align:center;
 	font-size:30px;
 }
-
+.modal-content p{
+	color: #999;
+}
 
 /*버튼영역*/ 
 .modal-btn{
 	/* border: 1px solid red; */
 	position:absolute;
-	left:100%;
+	right: 50px;
 	top:30px;
 	/* position: fixed;
 	right: 100px;
@@ -80,7 +82,7 @@ body{
 	color:#fff;
 	text-align:center;
 	overflow:hidden;
-	z-index:200;
+	z-index:2000;
 }
 .modal-btn i{cursor: pointer;}
 .close{
@@ -94,7 +96,7 @@ body{
 	margin-top: 10px;
 }
 .lr-btn i{font-size: 28px;}
-.g_page{ 
+.page-num{ 
 	font-size:12px;
 	color:#fff;
 	width:80px;
