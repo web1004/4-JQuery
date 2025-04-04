@@ -1,18 +1,18 @@
 $(document).ready(function(){
 
-  $(".gnb a").click(function(e){
-    e.preventDefault(); 
-    let linkLocation = $(this).attr("href");
-    $("html, body").animate({ 
-      scrollTop:$(linkLocation).offset().top
-    },500);
+  //클릭한 탑메뉴 현재위치활성화
+  $(".gnb a").click(function(){
+    $(this).addClass("active").siblings().removeClass("active");
+  });
+
+  //스크롤시 헤더,탑버튼 변경
+  $(window).scroll(function(){
+    let scrPosition = $(this).scrollTop();
+    if(scrPosition>50){
+      $("body").addClass("active");
+    }else{
+      $("body").removeClass("active");
+    };
   });
 
 });
-
-/* 
-offset()메서드 : 요소를 top/left의 위치를 조정해서 위치를 이동시킴
-
-offset().top;
-offset().left;
-*/
