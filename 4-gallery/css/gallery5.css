@@ -28,13 +28,9 @@ body {
   text-align: center;
   gap: 5px;
 }
-/* .gallery a {
-  width: 33%;
-} */
 .gallery a img {
   width: 300px;
   height: 200px;
-
 }
 .lightbox-overlay {  /* 모달창(Full Screen) */
   position: fixed;
