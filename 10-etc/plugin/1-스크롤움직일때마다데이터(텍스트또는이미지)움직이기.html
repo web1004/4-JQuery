@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>1-스크롤움직일때마다데이터(텍스트또는이미지)움직이기</title>
+  <!--Data Scroll PlugIn-->
+  <link rel="stylesheet" href="css/ScrollTrigger.css"> 
+  <style>
+    *{ 
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    #m0{height:500px;background:#e8e8e8;}
+    #m1{height:800px;background:#fef4b0;}
+    #m2{height:1000px;background:#c3e15c;}
+    #m3{height:1000px;background:#f5af18;}
+    #m4{height:1000px;background:#a3c8ee;}
+    #m5{height:1000px;background:#90d7d4;}
+
+    /*각 제목의 영역 크기가 있어야 함*/
+    .m1_in, 
+    .m2_in, 
+    .m3_in, 
+    .m4_in, 
+    .m5_in, 
+    .m6_in{width:1200px;margin:0 auto;}
+
+    h2{  
+      font-size:45px;
+      letter-spacing:2px; 
+      font-weight:800;
+      padding-top:80px;
+      text-align:center;
+    }
+  </style>
+</head>
+<body>
+  <div id="wrap">        
+    <div id="m0"> 
+      <div class="m0_in">
+        <!-- 비주얼영역 -->
+      </div>
+    </div>
+
+    <!-- Profile영역 -->
+    <div id="m1">
+      <div class="m1_in">
+        <h2 data-scroll="toggle(.fromRightIn, .fromRightOut) addHeight">PROFILE</h2>
+      </div>
+    </div>
+
+    <!-- Webdesign영역 -->
+    <div id="m2">
+      <div class="m2_in">
+        <h2 data-scroll="toggle(.fromLeftIn, .fromLeftOut) addHeight">WEBDESIGN</h2>        
+      </div>
+    </div>
+
+    <!-- Webpublishing영역 -->
+    <div id="m3">
+      <div class="m3_in">
+        <h2 data-scroll="toggle(.scaleUpIn, .scaleUpOut) addHeight">WEBPUBISHING</h2>           
+      </div>
+    </div>
+
+    <!-- ResponsiveWeb영역 -->
+    <div id="m4">
+      <div class="m4_in">
+        <h2 data-scroll="toggle(.fromTopIn, .fromTopOut) addHeight">RESPONSIVEWEB</h2>          
+      </div>
+    </div>
+
+    <!-- Mobileweb영역 -->
+    <div id="m5">
+      <div class="m5_in">
+        <h2 data-scroll="toggle(.fromBottomIn, .fromBottomOut) addHeight">MOBILEWEB</h2>            
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Script Source -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <!--Data Scroll PlugIn-->
+  <script src="js/ScrollTrigger.min.js"></script>
+  <script>
+    window.counter = function() {
+    // this refers to the html element with the data-scroll-showCallback tag
+    let span = this.querySelector('span');
+    let current = parseInt(span.textContent);
+    
+    span.textContent = current + 1;
+    };
+
+    document.addEventListener('DOMContentLoaded', function(){
+      ScrollTrigger.init();
+    });
+  </script>
+</body>
+</html>
