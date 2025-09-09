@@ -24,11 +24,9 @@ ul.gnb{
 }
 .gnb>.main{ /* 자손선택자로 메인메뉴에만 적용하게 함(.gnb에서 첫번째 자식인 .main만 적용) */
   position: relative;
-
 }
 .gnb>.main>a{
   /* border: 1px solid red; */
-  /* position: relative; */
   height: 60px;
   padding: 0 35px;
   display: flex;
@@ -55,6 +53,7 @@ ul.gnb{
   border-left:solid 1px #e8e8e8;
 }
 .sub.first{border-left: none;}
+/* 연속으로 나와있는 자식이 아니기때문에 nth-child,of-type 은 사용할수 없음 */
 .sub li{
   height: 40px;
   display: flex;

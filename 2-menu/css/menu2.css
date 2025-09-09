@@ -61,7 +61,7 @@ ul.gnb{
 
 /* Sub Menu */
 .sub{
-  /* display: none; */ /* display: flex; 를 사용하기 때문에 적용안됨*/
+  /* display: none; */ /* display: flex; 를 사용하기 때문에 적용안됨 ->JQuery에서 안보이게 함*/
   position: absolute;
   width: 100%;
   height: 40px;

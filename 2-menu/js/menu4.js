@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function(){
 
   $(".gnb").hover(function(){
     $(this).find(".sub").stop().slideDown();

@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function(){
 
   $(".sub").hide(); //display:none 과 동일함
 

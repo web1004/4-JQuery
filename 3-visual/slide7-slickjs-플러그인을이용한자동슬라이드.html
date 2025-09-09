@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>slide5-플러그인을이용한자동슬라이드</title>
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <style>
+    html,
+    body {
+      position: relative;
+      height: 100%;
+    }
+    body {
+      background: #eee;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
+    .swiper {
+      /* width: 100%;
+      height: 100%; */
+      width: 1200px;
+      height: 450px;
+    }
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* 수정 */
+    
+    .swiper-pagination-bullet{
+      width: 10px;
+      height: 10px;
+      border-radius: 0;
+      background-color: #fff;
+      opacity: 1;
+    }
+    .swiper-pagination-bullet-active{
+      width: 50px;
+      border-radius: 0;
+      background: crimson;
+    }
+
+    .swiper-button-next:after, .swiper-button-prev:after {
+      border: 1px solid red;
+      font-size: 60px;
+    }
+    .swiper-button-next, .swiper-button-prev{
+      color: #fff;
+    }
+    .swiper-button-next{right: 50px;}
+    .swiper-button-prev{left: 50px;}
+    .swiper-button-disabled{  /*마지막번째가 나올때 이전다음버튼이 바뀜 */
+      opacity: 1 !important;  /* !important ->제일 우선수위 높음 */
+      color: crimson;
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Swiper -->
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="image/banner-big-01.jpg" alt=""></div>
+      <div class="swiper-slide"><img src="image/banner-big-02.jpg" alt=""></div>
+      <div class="swiper-slide"><img src="image/banner-big-03.jpg" alt=""></div>
+      <div class="swiper-slide"><img src="image/banner-big-04.jpg" alt=""></div>
+      <div class="swiper-slide"><img src="image/banner-big-05.jpg" alt=""></div>
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      spaceBetween: 30,
+      centeredSlides: true,
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  </script>
+</body>
+</html>

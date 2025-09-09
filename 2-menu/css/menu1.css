@@ -21,7 +21,6 @@ nav{
 ul.gnb{
   /* border: 1px solid green;  */
   display: flex;
-
 }
 .gnb>.main{ /* 자손선택자로 메인메뉴에만 적용하게 함(.gnb에서 첫번째 자식인 .main만 적용) */
   position: relative;
