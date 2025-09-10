@@ -1,14 +1,14 @@
 $(document).ready(function(){
 
-  //이미지 총개수
-  let totalNum = $('.content div').length;  
+  //(1)이미지 총개수
+  let totalNum = $('.content div').length; 
   let currentNum = 1;
 
-  //처음에 출력되는 페이지번호 텍스트
+  //(2)처음에 출력되는 페이지번호 텍스트표시
   $(".page-num span:first").text(currentNum);
   $(".page-num span:last").text(totalNum);
 
-  //이전버튼
+  //(3)이전다음버튼
   $(".prev").click(function(){
     currentNum--;
     if(currentNum < 1){
@@ -18,8 +18,6 @@ $(document).ready(function(){
     $(".page-num span:first").text(currentNum);
   });
 
-
-  //다음버튼
   $(".next").click(function(){
     currentNum++;
     if(currentNum > totalNum){

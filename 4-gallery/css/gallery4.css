@@ -15,7 +15,8 @@ h2{
 	margin: auto;
 }
 #gallery img{display: block;}
-.largeImg li{
+/* fadeIn/fadeOut 으로 이미지 전환효과를 만들때 아래 (1)(2)을 먼저 셋팅함 */
+.largeImg li{  /* (1)모든 이미지는 동일한 위치, 안보이게 함 */
 	width:1000px;
 	height:630px;
 	display:none;
@@ -23,7 +24,7 @@ h2{
 	top:0;
 	left:0;
 }
-.largeImg li:first-child{display:block;}
+.largeImg li:first-child{display:block;} /* (2)첫번째 이미지는 보이게 함 */
 .largeImg li img{
 	width: inherit;
 	height: inherit;

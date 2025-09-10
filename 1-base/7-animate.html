@@ -24,13 +24,13 @@
   <div class="boxcolor">배경색상</div>
 
 
+
 	<!-- Script Source -->
 	<script src="js/jquery-3.7.1.min.js"></script>
 	<script src="js/jquery-ui-1.10.4.custom.min.js"></script>
 	<script>
 		$(document).ready(function(){
-
-			//$(선택자).animate({명령어:"값",명령어:"값",,,,,,});
+			//$(선택자).animate({명령어:"값",명령어:"값",,,,,,},속도);
 			/* 
 			-제이쿼리의 animate는 숫자로 값을 넣을수 있는 명령어 위주로 사용함!
 			"jquery-ui-1.10.4.custom.min.js" 파일을 연결해주면 속성관련 명령어도 사용할수 있음(color,backgroundColor 등등...)
@@ -38,16 +38,17 @@
 			뒤에 오는 단어는 대문자로 변경하며, 큰따옴표("")는 없애준다. 
 			*/
 
+
 			//(1)버튼 클릭시 글자크기 크게,테두리 두껍게,글자색......
 			$(".bt").click(function(){
 				$("h6").animate({
 					fontSize:"50px",
 					borderWidth:"10px",
 					color:"red"
-				},400); //속도를 넣고 싶을땐 끝나기전(0.4s -> 400)
+				},400); //(0.4s -> 400)
 			});
 
-			//(2)박스에 마우스 오버시 배경색과 글자색,글자크기 변경하기
+			//(2)박스에 마우스 호버시 배경색과 글자색,글자크기 변경하기
 			$(".boxcolor").hover(function(){
 				$(this).animate({
 					backgroundColor:"#ae5e9b",
@@ -64,6 +65,5 @@
 
 		});
 	</script>
-
 </body>
 </html>

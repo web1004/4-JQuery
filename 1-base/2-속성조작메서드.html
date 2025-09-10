@@ -42,11 +42,12 @@
   <p id="p5" class="yellow">내용5</p>
 
 
-  <!-- Script Source -->
+  
+	<!-- Script Source -->
 	<script src="js/jquery-3.7.1.min.js"></script>
-  <script>
-    $(document).ready(function(){
-      /* html()메서드:선택한 요소에 포함되어 있는 하위요소를 불러오거나 하위요소를 새요소로 바꿀때 사용함.
+	<script>
+		$(document).ready(function(){
+			/* html()메서드:선택한 요소에 포함되어 있는 하위요소를 불러오거나 하위요소를 새요소로 바꿀때 사용함.
 
       $("요소선택").html(); -> html의 괄호안이 비어있으면 불러오는것
       $("요소선택").html("새요소"); -> html을 바꾸는것     
@@ -54,9 +55,10 @@
 
       //<h2>태그에 모든 하위요소를 문자열로 가져와서 메세지창으로 띄움
       //alert($("h2").html());
-
+        
       //<h3>태그에 하위요소를 제거하고 새요소를 생성
       $("h3").html("<a href='#'>HTML 메서드</a>");
+
 
       /* text()메서드:선택한 요소내에 텍스트를 불러오거나 텍스트를 바꿀때 사용함.
 
@@ -65,13 +67,14 @@
       -------------------------------------------------------------*/
 
       //<h4>태그에 텍스트를 가져와서 메세지창 띄움 
-      //alert($("h4").text());
+      //alert($("h4").text()); 
 
-      //<h6>태그의 텍스트를 새 텍스트로 바꾼다.  
+      //<h6>태그의 텍스트를 새 텍스트로 바꾼다 
       $("h6").text("텍스트 메서드");
 
-      //<h6>태그의 스타일에 "color"속성값을 불러와서 <p>태그에 텍스트로 표시함.
+      //<h6>태그의 스타일에 "color"속성값을 불러와서 <p>태그에 텍스트로 표시함
       $(".color").text($("h6").css("color"));
+
 
       /* attr()메서드:선택한 요소에 속성값을 반환 또는 변환한다.
 
@@ -87,7 +90,7 @@
       $("#txt").text($("#wrap img").attr("src"));
 
       //id="wrap"인 요소의 하위<img>태그에 "width"속성값을 200으로 사용
-      $("#wrap img").attr("width","200px");
+      $("#wrap img").attr("width","200px")
 
       //id="box"인 요소의 하위<img>태그에 있는 border속성을 삭제
       $("#box img").removeAttr("border");
@@ -107,8 +110,7 @@
       $("#p2").removeClass("red"); 
       $("#p3").toggleClass("green"); 
       $("#p4").toggleClass("green");
-    });
-  </script>
-	
+		});
+	</script>
 </body>
 </html>

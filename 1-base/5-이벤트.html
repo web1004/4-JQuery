@@ -81,17 +81,19 @@
   <p class="txt4"></p>
 
 
+  
   <!-- Script Source -->
 	<script src="js/jquery-3.7.1.min.js"></script>
-  <script>
-    $(document).ready(function(){
-
+	<script>
+		$(document).ready(function(){
+			
       //클릭이벤트
       $(".event1 ul li a").click(function(){
         $(".event1 img").attr("src",$(this).attr("href"));
         // $(this) -> .event1 ul li a: this는 누르는 순간의 것(상위 선택자)
+
         return false;
-        //<a>태그에 기본기능(링크기능)을 차단시킴(a링크가 먼저 실행되서 자바스크립트가 실행되지 않기때문에) 
+        //<a>태그에 기본기능(링크기능)을 차단시킴(a링크가 먼저 실행되서 자바스크립트가 실행되지 않기때문에)   
       });
 
       //클릭,더블클릭 이벤트
@@ -120,7 +122,7 @@
       //hover(mouseenter + mouseleave)
       $(".event4 img").hover(function(){
         $(this).attr("src","image/fish.jpg");
-      },function(){
+      }, function(){
         $(this).attr("src","image/sea.jpg");
       });
 
@@ -136,7 +138,7 @@
       $("#user_id").focus(function(){ //focus가 나타났을때
         $(this).val("");
       });
-      $("#user_id").blur(function(){ //focus가 사라졌을때(input요소 바깥 빈부분을 클릭했을때)
+       $("#user_id").blur(function(){ //focus가 사라졌을때(input요소 바깥 빈부분을 클릭했을때)
         $(this).val("아이디 입력");
       });
 
@@ -152,16 +154,16 @@
         $("#menu li").css({"background-color":"transparent"}); //기존에 모든 li를 말함
         $(this).css({"background-color":"yellow"}); //$(this)->"#menu li"를 말하며, 현재 선택된 li를 말함
 
-        let num = $(this).index(); //0,1,2,3
+        let num = $(this).index(); //0,1,2,3.....
         $(".txt4").text(num);
       });
 
-      //scroll이벤트(스크롤바가 이동될 때마다 스크롤 탑위치값 나타내기)
+       //scroll이벤트(스크롤바가 이동될 때마다 스크롤 탑위치값 나타내기)
       $(window).scroll(function(){
         $("#txt2").text($(this).scrollTop());
       });
 
-    });
-  </script>
+		});
+	</script>
 </body>
 </html>

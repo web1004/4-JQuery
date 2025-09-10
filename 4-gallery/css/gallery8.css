@@ -12,7 +12,6 @@ body {
   align-items: center;
 }
 
-.gallery-wrap{}
 .page{
   text-align: right;
   margin-bottom: 15px;
@@ -28,9 +27,7 @@ body {
   background-color: #fff;
   border-radius: 5px;
 }
-.page i{
-  font-size: 28px;
-}
+.page i{font-size: 28px;}
 
 .content{
   width: 800px;

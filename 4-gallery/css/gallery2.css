@@ -21,7 +21,7 @@ body {
 	border: solid 1px #ccc;
 	margin-bottom: 20px;
 }
-#largeImg img { /*모든 이미지 동일한 위치에 겹친후 안보이게 함*/
+#largeImg img { /*(1)모든 이미지 동일한 위치에 겹친후 안보이게 함*/
 	width: inherit;
 	height: inherit;
 	object-fit: cover;
@@ -30,7 +30,7 @@ body {
 	top:25px;
 	left:25px;	
 }
-#largeImg img:first-child{display:inline;} /*첫번째 이미지는 보이게함*/
+#largeImg img:first-child{display:inline;} /*(2)첫번째 이미지는 보이게함*/
 .thumbs img {
 	width: 80px;
 	height: 70px;

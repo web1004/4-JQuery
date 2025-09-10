@@ -90,13 +90,17 @@
 		<li>내용56</li>
 	</ul>
 
+
 	<!-- Script Source -->
 	<script src="js/jquery-3.7.1.min.js"></script>
 	<script>
-		//$(선택자).제이쿼리실행문;
 		$(document).ready(function(){
+			//$("선택자" 또는 '선택자').제이쿼리명령어(메서드들...);  ->  선택자{스타일명령어}
+
+			//$("h1").css("background-color","#000").css("color","#fff"); ->메서드당 1개의 명령어만 쓸수 있음
+			//h1{background-color:#000;color:#fff;}
+
 			//직접선택자
-			//$("h1").css("background-color","#000").css("color","#fff");
 			$("h1").css({"background-color":"#000","color":"#fff"});
 			$("h2").css({"background-color":"yellow"});
 			$(".selector1 li").css({"background-color":"pink","border":"2px solid red"});
@@ -104,13 +108,13 @@
 			$(".third, .fourth").css({"color":"red"});
 			$(".selector3 li *").css({"color":"red"});
 
-			//인접관계선택자
+			//인접관계 선택자
 			$(".s1").parent().css({"border":"1px solid red"}); //parent():선택자의 부모 
 			$(".selector5").children().css({"background-color":"#ccc"}); //children():자식요소
 			$(".s2").prev().css({"color":"orange","font-weight":"bold"}); //prev():이전요소
 			$(".s2").next().css({"color":"blue","font-weight":"bold"}); //next():다음요소
 
-			//위치탐색선택자
+			//위치탐색 선택자
 			$("#menu1 li").first().css({"background-color":"yellowgreen"}); //first 첫번째요소
 			$("#menu2 li").last().css({"background-color":"pink"}); //last 마지막요소
 			$("#menu3 li:first-of-type").css({"background-color":"gray"});
@@ -121,6 +125,5 @@
 			//eq(n):해당하는 선택자의 n번째 요소(n은 index를 뜻하며, 0부터 시작함)
 		});
 	</script>
-
 </body>
 </html>

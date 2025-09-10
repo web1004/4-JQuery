@@ -7,9 +7,7 @@ $(document).ready(function(){
 
     // 큰이미지 src 속성 변경하기
     let imageSrc = $(this).attr("src");
-    //$("#largeImg img").attr({"src":imageSrc});
     $("#largeImg img").attr({"src":imageSrc}).hide().fadeIn();
-
   });
 
 });

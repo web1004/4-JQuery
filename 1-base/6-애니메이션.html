@@ -90,11 +90,11 @@
 	<script src="js/jquery-3.7.1.min.js"></script>
 	<script>
 		$(document).ready(function(){
-
+			
 			$(".bt1").click(function(){
 				$(".box1").show("slow");
 			});
-			
+
 			/*----------------------------------------------- 
 			애니메이션 효과의 속도 : "slow" "normal(기본)" "fast"
 			밀리초단위로 지정(1초=1000밀리초)
@@ -124,26 +124,27 @@
 				$(".box4").toggle("slow");
 			});
 
-			$("dt").click(function(){
-				$("dd").slideToggle("slow");
-			});
-
 			// $("dt").click(function(){
-			// 	if($("dd").css("display")=="none"){
-			// 		$("dd").slideDown("slow");
-			// 	}else{
-			// 		$("dd").slideUp("slow");
-			// 	};
+			// 	$("dd").slideToggle();
 			// });
 
+			$("dt").click(function(){
+				//현재 보이는 상태가 참이므로 참의 조건을 만든다.
+				if($("dd").css("display")=="none"){
+					$("dd").slideDown();
+				}else{
+					$("dd").slideUp();
+				};
+			});
+
 			$(".fadein").click(function(){
-				$(".ph1 img").fadeIn("slow");
+				$(".ph1 img").fadeIn();
 			});
 			$(".fadeout").click(function(){
-				$(".ph1 img").fadeOut("slow");
+				$(".ph1 img").fadeOut();
 			});
 			$(".fadetoggle").click(function(){
-				$(".ph1 img").fadeToggle("slow");
+				$(".ph1 img").fadeToggle();
 			});
 
 			$(".fade100").click(function(){
@@ -160,7 +161,7 @@
 				//delay()를 이용하여 fadeIn() 실행 후, 3초 뒤 slideUp() 실행
 				$(".two>div:first").fadeIn("slow").delay(3000).slideUp();
 
-				//지연시간 없이 연속해서 fadeIn(), slideUp()실행	
+				//지연시간 없이 연속해서 fadeIn(), slideUp()실행
 				$(".two>div:last").fadeIn("slow").slideUp();
 			});
 
