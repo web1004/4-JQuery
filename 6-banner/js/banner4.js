@@ -1,8 +1,8 @@
 $(document).ready(function(){
 
   let cloneElement = $(".logo-slide").clone(true);
-  $(cloneElement).appendTo(".logo"); //복제한 요소를 부모의 맨위로 이동
-  
+  $(cloneElement).appendTo(".logo"); //복제한 요소를 부모의 맨뒤로 이동
+
 });
 
 /* 
