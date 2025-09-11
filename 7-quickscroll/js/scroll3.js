@@ -43,10 +43,11 @@ $(document).ready(function(){
     }else{
       $("#scroll_btn ul li.scb3").removeClass("active");
       $("#scroll_btn ul li.scb3 a .scroll_hover").removeClass("active");
-    };   
+    };
+
   });
 
-  /*오른쪽 퀵메뉴가 보일때 클릭시 각 콘텐츠의 위치로 이동 */
+  //오른쪽 퀵메뉴가 보일때 클릭시 각 콘텐츠의 위치로 이동
   $("#scroll_btn ul .scb1").click(function(){
     $("body,html").animate({scrollTop:"250px"},700);
   });
@@ -57,7 +58,7 @@ $(document).ready(function(){
     $("body,html").animate({scrollTop:"1800px"},700);
   });
 
-  /* Top버튼 */
+  //TOP버튼
   $(".top_btn").click(function(){
     $("html,body").animate({scrollTop:"0"});
   });

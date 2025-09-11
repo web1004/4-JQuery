@@ -34,7 +34,8 @@ header{
   border-radius: 50%;
   text-align: center;
   line-height: 37px;
-  transform: translateY(100px);
+  /* top버튼 처음에 보이지않게 불투명도,위치 아래로 내려놓음 */
+  transform: translateY(100px);  
   opacity: 0;
   transition: 0.5s;
 }

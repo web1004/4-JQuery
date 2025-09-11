@@ -12,9 +12,9 @@ $(document).ready(function(){
     $btnSidebarIcon.toggleClass("xi-angle-right-thin xi-angle-left-thin");
 
     //텍스트 변경(open을 close로, close를 open으로)
-    if(chk){  //현재 보이는 버튼을 클릭할때
+    if(chk){
       $btnSidebarText.text("close");
-      chk = false; //위의 true 문장을 한번 실행하면 flase로 변경되고 그값을 다시 변수에 저장함
+      chk = false;
     }else{
       $btnSidebarText.text("open");
       chk = true;

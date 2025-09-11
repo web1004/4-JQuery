@@ -1,8 +1,8 @@
 $(document).ready(function(){
 
   $(window).scroll(function(){
-    let scrollPostion = $(this).scrollTop();
-    $("#quickBanner").stop().animate({top:scrollPostion+350},400);
+    let scrollPositon = $(this).scrollTop();
+    $("#quickBanner").stop().animate({top:scrollPositon+350},400);
   });
 
 });

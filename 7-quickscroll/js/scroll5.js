@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-  //클릭한 탑메뉴 현재위치활성화
+  //클릭한 탑메뉴 현재위치활성화(같은 페이지내에서 이동할 경우)
   $(".gnb a").click(function(){
     $(this).addClass("active").siblings().removeClass("active");
   });
