@@ -1,6 +1,6 @@
 @import url(reset.css);
 @import url('https://cdn.jsdelivr.net/npm/@xpressengine/xeicon@2.3.3/xeicon.min.css');
-font-family: xeicon;
+/* font-family: xeicon; */
 
 body{background:#efefef;}
 
