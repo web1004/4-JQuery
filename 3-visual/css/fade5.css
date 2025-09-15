@@ -1,0 +1,182 @@
+@import url(reset.css);
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@font-face {
+    font-family: 'ChosunIlboMyungjo';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Chosunilbo_myungjo.woff') format('woff');
+    font-weight: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'GounBatang';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunBatang-Regular.woff') format('woff');
+    font-weight: normal;
+    font-display: swap;
+}
+
+.fadeShow{ /* FullScreen */
+  position: relative;
+  width: 100%;
+  height: 550px;
+  overflow: hidden;
+}
+.changeimg ul{
+  /* border: 1px solid red; */
+  position: relative;
+  height:550px;
+  background:#eee;
+}
+
+/* (1)이미지 모두 동일한 위치, 안보이게 함 */
+.changeimg ul li{ /* 나타나기전에 설정-안보이게 */
+  /* border: 1px solid red; */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+  opacity: 0;
+  transition: 1.5s;
+}
+/* 나타날때 설정-보이게 하고,실제크기 ==>jQuery 에서 클래스 생성 및 삭제 */
+.changeimg ul li.imgVisible{ 
+  opacity: 1;
+  z-index: 100;
+}
+
+
+/* (2)첫번째 배경이미지만 보임 */
+.changeimg ul li:nth-child(1){background-image: url(../image/visu_pc_01.jpg);}
+.changeimg ul li:nth-child(2){background-image: url(../image/visu_pc_02.jpg);}
+.changeimg ul li:nth-child(3){background-image: url(../image/visu_pc_03.jpg);}
+
+
+/* 오른쪽배경박스-오른쪽에서 등장 */
+.des-box{
+  /* background-color: yellow; */
+  position:absolute;
+  right:-100%;
+  top:0;
+  width:50%;
+  height:100%;
+  transition: 1s;
+  transition-delay: 1.5s;
+}
+.des-box.boxVisible{
+  right:0;
+}
+
+/* 비주얼텍스트-안보였다 보이게 */
+.des{
+  /* border: 1px solid red; */
+  position:absolute;
+  right:0;
+  top:0;
+  width:50%;
+  height:100%;
+  transition: 1.5s;
+  transition-delay: 2.5s;
+  opacity: 0;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 100px;
+  row-gap: 30px;
+}
+.des.textVisible{
+  opacity: 1;
+}
+
+.changeimg ul li:nth-child(1) .des-box{background-color: rgba(237, 185, 46, 0.30);}
+.changeimg ul li:nth-child(2) .des-box{background-color: rgba(164, 105, 53, 0.50);}
+.changeimg ul li:nth-child(3) .des-box{background-color: rgba(140, 171, 217, 0.50);}
+
+
+/*비주얼 텍스트 공통*/
+.des h2{
+  font-family: 'GounBatang';
+  font-weight: 400;
+  font-size: 45px;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+.des h2 span{
+  font-family: "Playfair Display", serif;
+  font-weight: 400;
+  display: block;
+  font-size: 20px;
+}
+.des p{
+  font-family: 'ChosunIlboMyungjo';
+  font-size: 18px;
+  line-height: 25px;
+}
+.des .btn-wrap{
+  display: flex;
+  column-gap: 5px;
+}
+.des .btn-wrap a{
+  border: 1px solid #fff;
+  padding: 6px 20px;
+}
+
+/* Indicator */
+.fade-indicator{
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 200;
+  display: flex;
+  column-gap: 5px;
+}
+.fade-indicator a{
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
+  border-radius: 50%;
+  text-indent: -9999px;
+}
+.fade-indicator a.active{
+  width: 30px;
+  border-radius: 30px;
+
+}
+
+.play-stop{
+  width: 20px;
+  height: 20px;
+  position: relative;  
+  transform: translateY(-5px);
+  cursor: pointer;
+}
+.play, .stop{
+  color: #fff;
+  font-size: 18px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+
+/* Prev Next  Button */
+.side_btn .icon{
+  font-size: 80px;
+  color: #fff;
+}
+.side_btn .lbtn,
+.side_btn .rbtn{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 200;
+  opacity: 0.6;
+}
+.side_btn .lbtn{left: 30px;}
+.side_btn .rbtn{right: 30px;}
+.side_btn .lbtn:hover,
+.side_btn .rbtn:hover{opacity: 1;}

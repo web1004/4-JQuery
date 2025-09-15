@@ -2,22 +2,22 @@ $(document).ready(function(){
 
   let $img = $(".changeimg ul li"),
       $text = $(".changeimg ul li .des"),
+      $box = $(".changeimg ul li .des-box"),
       $lbtn = $(".side_btn .lbtn"),
       $rbtn = $(".side_btn .rbtn"),
       oldImg=0,
       newImg=0,
       oldText=0,
       newText=0,
+      oldBox=0,
+      newBox=0,
       count = $img.length;
 
-      first();
-
-      function first() {
-
-        $(".changeimg ul li:nth-child(1) .des").css({"transition-delay":"0"}).addClass('textVisible');
-
-
-        }
+  first();
+  function first() {
+    $box.eq(0).addClass('boxVisible');
+    $text.eq(0).addClass('textVisible');
+  }
 
   //이미지 전환효과 함수
   function changeImg(newImg){
@@ -26,6 +26,15 @@ $(document).ready(function(){
       $img.eq(newImg).addClass("imgVisible");
     };
     oldImg = newImg;
+  };
+
+  //박스 전환효과 함수
+  function changeBox(newBox){
+    if(oldBox != newBox){
+      $box.eq(oldBox).removeClass("boxVisible");
+      $box.eq(newBox).addClass("boxVisible");
+    };
+    oldBox = newBox;
   };
 
   //텍스트 전환효과 함수
@@ -45,6 +54,13 @@ $(document).ready(function(){
     }
     changeImg(newImg);
   }; 
+    function autoBox(){
+    newBox++;
+    if(newBox>count-1){ 
+      newBox=0;
+    }
+    changeBox(newBox);
+  };
   function autoText(){
     newText++;
     if(newText>count-1){ 
@@ -52,8 +68,11 @@ $(document).ready(function(){
     }
     changeText(newText);
   };
+
   timerImg = setInterval(autoImg,4000); 
+  timerBox = setInterval(autoBox,4000);
   timerText = setInterval(autoText,4000);
+
 
   //좌우버튼
   $lbtn.click(function(){

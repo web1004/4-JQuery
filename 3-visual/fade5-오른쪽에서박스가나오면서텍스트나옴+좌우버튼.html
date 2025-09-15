@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>fade3-이미지와텍스트다른움직임주기-좌우버튼</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xpressengine/xeicon@2.3.3/xeicon.min.css">
+  <link rel="stylesheet" href="css/fade5.css">
+</head>
+<body>
+
+  <div class="fadeShow">
+    <div class="changeimg">
+      <ul>
+        <li class="imgVisible">  <!-- imgVisible 는 첫번째 배경이미지 활성화 -->
+          <div class="des-box"></div>
+          <div class="des">  <!-- textVisible 첫번째 텍스트 활성화 -->
+            <h2>
+              자음생에센스
+              <span>Concentrated Ginseng Renewing Serum</span>
+            </h2>
+            <p>
+              진세노믹스™가 선사하는<br>
+              3중 마이크로타켓팅으로<br>
+              쉽게 무너지지 않는 탄탄한 피부
+            </p>
+            <div class="btn-wrap">
+              <a href="#" class="btn_view">자세히보기</a>
+              <a href="#" class="btn_view">구매하러가기</a>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="des-box"></div>
+          <div class="des"> 
+            <h2>
+              자음생앰플
+              <span>Concentrated Ginseng Rescue Ampoule</span>
+            </h2>          
+            <p>
+              단 한 번 사용으로도 외부자극으로 시달린<br>
+              피부를 개선해주는 레스큐 앰플
+            </p>
+            <div class="btn-wrap">
+              <a href="#" class="btn_view">자세히보기</a>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="des-box"></div>
+          <div class="des">
+            <h2>
+              윤조에센스
+              <span>Beauty From Your Culture</span>
+            </h2> 
+            <p>
+              온 세상에 복을 전하는<br>
+              마술같은 여정<br>
+              쉽게 무너지지 않는 탄탄한 피부
+            </p>
+            <div class="btn-wrap">
+              <a href="#" class="btn_view">자세히보기</a>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Indicator Button -->
+    <div class="fade-indicator"> 
+      <a href="#none" class="active">1</a>
+      <a href="#none">2</a>
+      <a href="#none">3</a>
+      <div class="play-stop">
+        <span class="material-symbols-outlined play">play_circle</span>
+        <span class="material-symbols-outlined stop">stop_circle</span>
+      </div>
+    </div>
+
+    
+
+    <!-- 좌우버튼 -->
+    <div class="side_btn">
+      <a class="lbtn" href="#none"><span class="icon xi-angle-left-thin"></span></a>
+      <a class="rbtn" href="#none"><span class="icon xi-angle-right-thin"></span></a>
+    </div>
+
+
+  </div>
+
+  
+  <!-- Script Source -->
+  <script src="js/jquery-3.7.1.min.js"></script>
+  <script src="js/jquery-ui-1.10.4.custom.min.js"></script>
+  <script src="js/fade55.js"></script>  
+</body>
+</html>
