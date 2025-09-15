@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>3-타이핑글자</title>
+  <title>typeit-타이핑글자</title>
   <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap" rel="stylesheet">
   <style>
@@ -47,11 +47,13 @@
 
   <section> 
     <div class="section-inner">
+      <!-- (1)타이핑되는 글자가 나오고  커서만 계속 깜빡이는 글자-->
       <h2 id="typing1">WebDesign&amp;WebPublishing&nbsp; </h2>
     </div>
   </section>
   <footer>
-    <p class="foot_text" id="typing2"></p>
+    <!-- (2)타이핑되는 글자가 써지고 지우고 다시 써지는 글자(반복) -->
+    <p class="foot_text" id="typing2"></p> <!-- 표시하고 싶은 글자는 아래 js 소스에 직접 삽입 -->
     <address>Copyright &copy; 2024 <span class="bd">WEBD1004.PE.KR</span> All Rights Reserved.</address>
   </footer>
 
@@ -60,6 +62,7 @@
   <!--Typing Text PlugIn-->
   <script src="js/typeit.min.js"></script>
   <script>
+    //(1)
     window.instance = new TypeIt("#typing1", {
       speed: 100
     })
@@ -77,6 +80,7 @@
     .type("")
     .go();
 
+    //(2)
     new TypeIt("#typing2", {
       speed: 100,
       strings:
