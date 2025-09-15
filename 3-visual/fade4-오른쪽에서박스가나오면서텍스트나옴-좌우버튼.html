@@ -2,19 +2,19 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>fade3-이미지와텍스트다른움직임주기-좌우버튼</title>
+  <title>fade4-오른쪽에서박스가나오면서텍스트나옴-좌우버튼</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xpressengine/xeicon@2.3.3/xeicon.min.css">
-  <link rel="stylesheet" href="css/fade5.css">
+  <link rel="stylesheet" href="css/fade4.css">
 </head>
 <body>
-
-  <div class="fadeShow">
-    <div class="changeimg">
+  
+  <div class="fadeSlider">
+    <div class="changeImg">
       <ul>
-        <li class="imgVisible">  <!-- imgVisible 는 첫번째 배경이미지 활성화 -->
-          <div class="des-box"></div>
-          <div class="des">  <!-- textVisible 첫번째 텍스트 활성화 -->
+        <li class="bgVisible"> <!-- 배경이미지 -->
+          <div class="desBox"></div> <!-- boxVisible-오른쪽에서 나오는 빈박스 -->
+          <div class="des">  <!-- textVisible-첫번재 텍스트 안나옴 -->
             <h2>
               자음생에센스
               <span>Concentrated Ginseng Renewing Serum</span>
@@ -24,15 +24,15 @@
               3중 마이크로타켓팅으로<br>
               쉽게 무너지지 않는 탄탄한 피부
             </p>
-            <div class="btn-wrap">
-              <a href="#" class="btn_view">자세히보기</a>
-              <a href="#" class="btn_view">구매하러가기</a>
+            <div class="btnWrap">
+              <a href="#" class="btn-view">자세히보기</a>
+              <a href="#" class="btn-view">구매하러가기</a>
             </div>
           </div>
         </li>
-        <li>
-          <div class="des-box"></div>
-          <div class="des"> 
+        <li> 
+          <div class="desBox"></div> 
+          <div class="des">
             <h2>
               자음생앰플
               <span>Concentrated Ginseng Rescue Ampoule</span>
@@ -40,14 +40,15 @@
             <p>
               단 한 번 사용으로도 외부자극으로 시달린<br>
               피부를 개선해주는 레스큐 앰플
+            </p> 
             </p>
-            <div class="btn-wrap">
-              <a href="#" class="btn_view">자세히보기</a>
+            <div class="btnWrap">
+              <a href="#" class="btn-view">자세히보기</a>
             </div>
           </div>
         </li>
-        <li>
-          <div class="des-box"></div>
+        <li> <!-- 배경이미지 -->
+          <div class="desBox"></div> <!-- 오른쪽에서 나오는 빈박스 -->
           <div class="des">
             <h2>
               윤조에센스
@@ -58,8 +59,8 @@
               마술같은 여정<br>
               쉽게 무너지지 않는 탄탄한 피부
             </p>
-            <div class="btn-wrap">
-              <a href="#" class="btn_view">자세히보기</a>
+            <div class="btnWrap">
+              <a href="#" class="btn-view">자세히보기</a>
             </div>
           </div>
         </li>
@@ -67,7 +68,7 @@
     </div>
 
     <!-- Indicator Button -->
-    <div class="fade-indicator"> 
+    <div class="fadeIndicator"> 
       <a href="#none" class="active">1</a>
       <a href="#none">2</a>
       <a href="#none">3</a>
@@ -77,21 +78,16 @@
       </div>
     </div>
 
-    
-
-    <!-- 좌우버튼 -->
-    <div class="side_btn">
+    <!-- Prev-Next Button -->
+    <div class="sideBtn">
       <a class="lbtn" href="#none"><span class="icon xi-angle-left-thin"></span></a>
       <a class="rbtn" href="#none"><span class="icon xi-angle-right-thin"></span></a>
     </div>
-
-
   </div>
 
-  
   <!-- Script Source -->
-  <script src="js/jquery-3.7.1.min.js"></script>
+  <script src="js/jquery-3.7.1.min.js"></script>   
   <script src="js/jquery-ui-1.10.4.custom.min.js"></script>
-  <script src="js/fade55.js"></script>  
+  <script src="js/fade4.js"></script>  
 </body>
 </html>

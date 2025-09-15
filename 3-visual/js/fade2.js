@@ -6,12 +6,12 @@ $(document).ready(function(){
       fadeNext = fadeContainer.find(".side-btn .next"),
       oldidx = 0,  //기존이미지 index
       idx=0,  //새로 바꾸는 이미지 index
-      fadeCount = fadeImage.length, //length메서드:1,2,3....개수를 세어줌
+      fadeCount = fadeImage.length,  //length메서드:1,2,3....개수를 세어줌
       interval = 4000;
 
-  //이미지와 버튼이 바뀌는 함수
-  function fadeAni(idx){ //매개변수가 있는 함수 ->idx는 선택되는 이미지
-    if(oldidx != idx){ //기존의 이미지와 선택된 이미지가 다를때...
+  //이미지와 버튼(Indicator)이 바뀌는 함수생성
+  function fadeAni(idx){ //매개변수(함수 바깥에서 함수로 전달하는 변수)가 있는 함수 ->idx는 선택되는 이미지
+    if(oldidx != idx){ //기존의 이미지와 선택된 이미지의 index가 다를때 실행
       fadeImage.eq(oldidx).stop().fadeOut("300"); //기존 이미지 사라짐
       fadeImage.eq(idx).stop().fadeIn("300"); //새로 바뀌는 이미지 나타남  
     };
@@ -19,10 +19,10 @@ $(document).ready(function(){
   };
 
   //자동Fade함수
-  //일정시간마다 할일: setInterval(함수명,시간) / clearInterval(변수) 
+  //일정시간마다 할일: setInterval(함수명,시간) / 자동해지: clearInterval(변수) 
   function fadeAuto(){
     fadeTimer = setInterval(function(){
-      //현재가 (0+1)%5=1,(1+1)%5=2,(2+1)%5=3, (3+1)%5=4, (4+1)%5=0   
+      //현재가 (0+1)%5=1, (1+1)%5=2, (2+1)%5=3, (3+1)%5=4, (4+1)%5=0
       idx = (oldidx + 1) % fadeCount;
       fadeAni(idx);
     },interval);
@@ -43,14 +43,6 @@ $(document).ready(function(){
       idx=0; 
     }
     fadeAni(idx);
-  });
-
-  //전체영역에 마우스를 올리면 자동함수 멈추고 다시 마우스가 나오면 자동함수 실행
-  fadeContainer.mouseenter(function(){
-    clearInterval(fadeTimer);
-  })
-  .mouseleave(function(){
-    fadeAuto();
   });
 
 });

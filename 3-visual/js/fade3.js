@@ -1,87 +1,58 @@
 $(document).ready(function(){
 
-  let $img = $(".changeimg ul li"),
-      $text = $(".changeimg ul li .des"),
-      $lbtn = $(".side_btn .lbtn"),
-      $rbtn = $(".side_btn .rbtn"),
-      oldImg=0,
-      newImg=0,
-      oldText=0,
-      newText=0,
+  let $fadeContainer = $(".fadeShow"),
+      $img = $fadeContainer.find(".changeImg ul li"),
+      $text = $fadeContainer.find(".changeImg ul li .des"),
+      $leftBtn = $fadeContainer.find(".sideBtn .leftBtn"),
+      $rightBtn = $fadeContainer.find(".sideBtn .rightBtn"),
+      oldIndex=0,
+      newIndex=0,
       count = $img.length;
 
-  //이미지 전환효과 함수
-  function changeImg(newImg){
-    if(oldImg != newImg){
-      $img.eq(oldImg).removeClass("imgVisible");
-      $img.eq(newImg).addClass("imgVisible");
+  //이미지,텍스트 전환효과 함수
+  function changeVisual(newIndex){
+    if(oldIndex != newIndex){
+      $img.eq(oldIndex).removeClass("imgVisible");
+      $img.eq(newIndex).addClass("imgVisible");
+      $text.eq(oldIndex).removeClass("textVisible");
+      $text.eq(newIndex).addClass("textVisible");
     };
-    oldImg = newImg;
-  };
-
-  //텍스트 전환효과 함수
-  function changeText(newText){
-    if(oldText != newText){
-      $text.eq(oldText).removeClass("textVisible");
-      $text.eq(newText).addClass("textVisible");
-    };
-    oldText = newText;
+    oldIndex = newIndex;
   };
 
   //자동함수 생성
-  function autoImg(){
-    newImg++;
-    if(newImg>count-1){ 
-      newImg=0;
+  function changeAuto(){
+    newIndex++;
+    if(newIndex>count-1){ 
+      newIndex=0;
     }
-    changeImg(newImg);
-  }; 
-  function autoText(){
-    newText++;
-    if(newText>count-1){ 
-      newText=0;
-    }
-    changeText(newText);
+    changeVisual(newIndex);
   };
-  timerImg = setInterval(autoImg,4000); 
-  timerText = setInterval(autoText,4000);
+  timerAuto = setInterval(changeAuto,5000);
 
   //좌우버튼
-  $lbtn.click(function(){
-    newImg--;
-    if(newImg<0){ 
-      newImg=count-1;
+  $leftBtn.click(function(){
+    newIndex--;
+    if(newIndex<0){ 
+      newIndex=count-1;
     }
-    changeImg(newImg);
-
-    newText--;
-    if(newText<0){ 
-      newText=count-1;
-    }
-    changeText(newText);
+    changeVisual(newIndex);
   });
-  $rbtn.click(function(){
-    newImg++;
-    if(newImg>count-1){ 
-      newImg=0;
-    }
-    changeImg(newImg);
 
-    newText++;
-    if(newText>count-1){ 
-      newText=0;
+  $rightBtn.click(function(){
+    newIndex++;
+    if(newIndex>count-1){ 
+      newIndex=0;
     }
-    changeText(newText);
+    changeVisual(newIndex);
   });
 
   //마우스오버시 멈춤
   $(".fadeShow").mouseenter(function(){
-    clearInterval(timerImg);
-    clearInterval(timerText);
+    clearInterval(timerAuto);
   })
   .mouseleave(function(){
-    timerImg = setInterval(autoImg,4000); 
-    timerText = setInterval(autoText,4000);
+    timerAuto = setInterval(changeAuto,5000);
   });
 
 });

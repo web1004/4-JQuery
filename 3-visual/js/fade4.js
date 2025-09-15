@@ -1,71 +1,96 @@
 $(document).ready(function(){
 
-  let $img = $(".main-visual ul li .main-image"),
-      $text = $(".main-visual ul li .main-text"),
-      $btn = $(".main-btn a"),
-      oldImg=0,
-      newImg=0,
-      oldText=0,
-      newText=0,
-      count = $img.length;
+  let $bgImg = $(".changeImg ul li"),
+      $text = $(".changeImg ul li .des"),
+      $box = $(".changeImg ul li .desBox"),
+      $lbtn = $(".sideBtn .lbtn"),
+      $rbtn = $(".sideBtn .rbtn"),
+      $indicator = $(".fadeIndicator a"),
+      $control = $(".fadeIndicator .play-stop"),
+      $playBtn = $(".play-stop .play"),
+      $stopBtn = $(".play-stop .stop"),
+      oldIdx=0,
+      newIdx=0,
+      sliderCount = $bgImg.length;
 
-  //이미지 전환효과 함수
-  function changeImg(newImg){ 
-    if(oldImg != newImg){
-      $btn.eq(oldImg).removeClass("active");
-      $btn.eq(newImg).addClass("active");
-      $img.eq(oldImg).removeClass("imgVisible");
-      $img.eq(newImg).addClass("imgVisible");
-    }
-    oldImg = newImg;
-  };
+  //첫번째 오른쪽 박스와 텍스트는 처음부터 등장
+  first();  
+  function first(){
+    $box.eq(0).addClass("boxVisible");
+    $text.eq(0).addClass("textVisible");
+  }
 
-  //텍스트 전환효과 함수
-  function changeText(newText){ 
-    if(oldText != newText){
-      $btn.eq(oldText).removeClass("active");
-      $btn.eq(newText).addClass("active");
-      $text.eq(oldText).removeClass("textVisible");
-      $text.eq(newText).addClass("textVisible");
+  //비주얼이미지,박스,텍스트 전환효과
+  function changeSlider(newIdx){
+    if(oldIdx != newIdx){
+      $bgImg.eq(oldIdx).removeClass("bgVisible");
+      $bgImg.eq(newIdx).addClass("bgVisible");
+      $box.eq(oldIdx).removeClass("boxVisible");
+      $box.eq(newIdx).addClass("boxVisible");
+      $text.eq(oldIdx).removeClass("textVisible");
+      $text.eq(newIdx).addClass("textVisible");
+      $indicator.eq(oldIdx).removeClass("active"); 
+      $indicator.eq(newIdx).addClass("active");
     };
-    oldText = newText;
+    oldIdx = newIdx;
   };
 
   //자동함수 생성
-  function autoImg(){
-    newImg++;
-    if(newImg>count-1){ 
-      newImg=0;
+  function autoSlider(){
+    newIdx++;
+    if(newIdx > sliderCount-1){ 
+      newIdx=0;
     }
-    changeImg(newImg);
+    changeSlider(newIdx);
   };
-  function autoText(){
-    newText++;
-    if(newText>count-1){ 
-      newText=0;
-    }
-    changeText(newText);
-  };
-  timerImg = setInterval(autoImg,4000); 
-  timerText = setInterval(autoText,4000);
-  
-  //인디케이터
-  $btn.click(function(){
-    newImg=$(this).index();
-    changeImg(newImg);
+  timerSlider = setInterval(autoSlider,5000);
 
-    newText=$(this).index();
-    changeText(newText);
+  //좌우버튼
+  $lbtn.click(function(){
+    newIdx--;
+    if(newIdx < 0){ 
+      newIdx=sliderCount-1;
+    }
+    changeSlider(newIdx);
+  });
+  $rbtn.click(function(){
+    newIdx++;
+    if(newIdx > sliderCount-1){ 
+      newIdx=0;
+    }
+    changeSlider(newIdx);
   });
 
-  //마우스오버 멈춤
-  $("main").mouseenter(function(){
-    clearInterval(timerImg);
-    clearInterval(timerText);
+  //Indicator(하단버튼)
+  $indicator.click(function(){
+    newIdx = $(this).index();
+    changeSlider(newIdx);
+  });
+
+  //play-stop
+  $playBtn.hide();
+  check = true;
+
+  $control.click(function(){
+    if(check){
+      clearInterval(timerSlider);
+      $playBtn.show();
+      $stopBtn.hide();
+      check = false;
+    }else{
+      timerSlider = setInterval(autoSlider,5000);
+      $playBtn.hide();
+      $stopBtn.show();
+      check = true;
+    };
+  });
+
+  //마우스오버시 멈춤(playstop버튼이 있을때는 기능이 중복됨)
+  $(".fadeSlider").mouseenter(function(){
+    clearInterval(timerSlider);
   })
   .mouseleave(function(){
-    timerImg = setInterval(autoImg,4000); 
-    timerText = setInterval(autoText,4000);
+    timerSlider = setInterval(autoSlider,5000);
   });
 
 });

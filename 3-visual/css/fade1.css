@@ -9,13 +9,13 @@
 
 /* (1)이미지 모두 동일한 위치, 안보이게 함 */
 .fade-items ul li{
-  display: none;
   position: absolute;
   top: 0;
   left: 0;
+  display: none;
 }
 
-/* (2)첫번째 이미지만 보임 */
+/* (2)첫번째 이미지만 보이게 함 */
 .fade-items ul li:first-child{display: block;}
 
 /* Indicator */
